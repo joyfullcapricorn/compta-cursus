@@ -1,0 +1,212 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Avantages de toute nature, déplacements et saisie de rémunération
+coursId: legislation-sociale
+chapitreNum: 5
+resume: Voiture de société, PC, GSM, frais de déplacement et quotités saisissables
+---
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+## ATN — Suite des avantages de toute nature
+
+### Voiture de société (usage privé)
+
+**Sur le plan social :** l'utilisation privée n'est pas soumise à cotisations sociales pour le travailleur. L'employeur doit cependant payer une **cotisation CO2**.
+
+**Sur le plan fiscal :** constitue un avantage imposable calculé selon la formule suivante :
+
+<ExcelViewer
+  title="Formule de calcul de l'ATN voiture de société"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Formule",
+      rows: [
+        ["Carburant", "Formule"],
+        ["Diesel", "ATN = Prix catalogue × 6/7 × [5,5 + 0,1 × (CO2 − 65)]%"],
+        ["Essence / Gaz / LPG", "ATN = Prix catalogue × 6/7 × [5,5 + 0,1 × (CO2 − 78)]%"],
+        ["Électrique", "ATN = Valeur catalogue × 6/7 × 4%"],
+      ]
+    }, {
+      name: "Règles",
+      rows: [
+        ["Règle", "Détail"],
+        ["Plancher du taux", "4%"],
+        ["Plafond du taux", "18%"],
+        ["ATN minimum", "1.600 € (revenus 2024)"],
+        ["Véhicules sans données CO2 (diesel)", "Assimilés à 195 g/km"],
+        ["Véhicules sans données CO2 (essence/LPG/gaz)", "Assimilés à 205 g/km"],
+        ["Dépréciation annuelle", "Après 1 an : 94% — puis −6%/an jusqu'à un minimum de 70%"],
+      ]
+    }]
+  }}
+/>
+
+> **Exemple :** BMW diesel, valeur catalogue 38.000 €, émission CO2 = 130 g/km
+> ATN = 38.000 × 6/7 × [5,5 + 0,1 × (130 − 65)]% = 38.000 × 6/7 × **12,00%** = **3.908,57 €**
+
+Si le travailleur verse une indemnité kilométrique ou paye certains frais, ces montants sont déduits de l'ATN.
+
+---
+
+### Matériel informatique et téléphonie
+
+S'applique lorsque l'employeur reste **propriétaire** du matériel et **titulaire** de l'abonnement. L'évaluation sociale et fiscale sont **identiques** :
+
+<ExcelViewer
+  title="ATN matériel informatique et téléphonie (forfaits annuels)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Forfaits",
+      rows: [
+        ["Équipement / Service", "ATN annuel (€)"],
+        ["Ordinateur (PC, laptop)", "72"],
+        ["Tablette numérique", "36"],
+        ["GSM / Smartphone", "36"],
+        ["Connexion internet", "60"],
+        ["Abonnement téléphonique", "48"],
+      ]
+    }]
+  }}
+/>
+
+Ces montants sont réduits de la participation éventuelle du travailleur.
+
+---
+
+### Plan PC privé
+
+Le travailleur achète du matériel informatique **pour usage privé** et l'employeur intervient dans le prix.
+
+**Matériel éligible :** moniteur, clavier, souris, imprimante, scanner, enceintes (non autonomes), webcam, mémoire externe, casque téléphonique, appareils pour personnes handicapées.
+
+**Conditions d'exonération fiscale (exercice 2024, revenus 2023) :**
+- Matériel à l'**état neuf**
+- N'ayant **jamais appartenu** à l'employeur
+- Rémunérations annuelles brutes imposables du travailleur ≤ **40.440 €** (2023)
+- Intervention exonérée à concurrence de **1.030 €** maximum
+
+---
+
+## f) Frais de déplacement domicile – lieu de travail
+
+### Transports en commun — Train
+
+L'employeur doit intervenir dans le coût de la **carte-train** ou de la **carte-railflex**.
+
+*Exemple (2023) :* trajet de 20 km → carte railflex à 33,50 € → intervention employeur : 20 €.
+
+### Autres transports en commun
+
+<ExcelViewer
+  title="Intervention de l'employeur — Autres transports en commun"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Modalités",
+      rows: [
+        ["Type de tarification", "Modalité d'intervention"],
+        ["Prix proportionnel à la distance", "Remboursement comme si le travailleur prenait le train, sans dépasser 75% du coût réel"],
+        ["Prix fixe", "71,8% du coût du transport — maximum 34 €/mois (= intervention carte-train pour 7 km)"],
+      ]
+    }]
+  }}
+/>
+
+> **Exemple prix fixe (2023) :** bus à 50 €/mois → 71,8% = 35,9 € > plafond de 34 € → intervention limitée à **34 €**.
+
+### Véhicule personnel
+
+L'employeur **n'est pas tenu** d'intervenir pour les déplacements en voiture personnelle, sauf si prévu par CCT ou contrat de travail.
+
+### Vélo
+
+L'employeur **est tenu** d'intervenir si prévu par CCT ou règlement de travail.
+
+> Les remboursements de frais de déplacement sont **exonérés de cotisations sociales**. Ils sont exonérés fiscalement si le travailleur opte pour la **déduction forfaitaire** des charges professionnelles.
+
+---
+
+## e) Saisie et cession de la rémunération
+
+### Définitions
+
+- **Saisie-arrêt exécution** : procédure permettant à un créancier disposant d'un **titre exécutoire** de faire saisir la rémunération de son débiteur. Effectuée par exploit d'huissier, ou par notification recommandée pour l'administration fiscale.
+- **Cession de rémunération** : convention par laquelle le travailleur cède volontairement une partie de sa rémunération à un créancier. Doit figurer dans un acte distinct.
+
+C'est l'**employeur** qui effectue la retenue sur la rémunération.
+
+### Quotités saisissables ou cessibles (au 01/01/2024)
+
+<ExcelViewer
+  title="Quotités saisissables selon le revenu mensuel net"
+  description="Revenus professionnels (salariés et indépendants)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Revenus prof.",
+      rows: [
+        ["Tranche de revenu mensuel net", "Partie saisissable / cessible"],
+        ["Jusqu'à 1.341 €", "Rien"],
+        ["De 1.341,01 € à 1.440 €", "20% de la somme entre ces deux montants (max 19,80 €)"],
+        ["De 1.440,01 € à 1.589 €", "30% de la somme entre ces deux montants (max 44,70 €)"],
+        ["De 1.589,01 € à 1.738 €", "40% de la somme entre ces deux montants (max 59,60 €)"],
+        ["Au-delà de 1.738 €", "Tout peut être saisi ou cédé"],
+      ]
+    }, {
+      name: "Revenus remplacement",
+      rows: [
+        ["Tranche de revenu mensuel net", "Partie saisissable / cessible"],
+        ["Jusqu'à 1.341 €", "Rien"],
+        ["De 1.341,01 € à 1.440 €", "20% de la somme entre ces deux montants"],
+        ["De 1.440,01 € à 1.589 €", "40% de la somme entre ces deux montants"],
+        ["De 1.589,01 € à 1.738 €", "40% de la somme entre ces deux montants"],
+        ["Au-delà de 1.738 €", "Tout peut être saisi ou cédé"],
+      ]
+    }]
+  }}
+/>
+
+### Règles importantes
+
+1. **Pension alimentaire** : aucune limitation, priorité absolue sur toutes les autres saisies ou cessions
+2. **Enfants à charge** : la quotité à retenir est diminuée de **83 €** par enfant à charge
+
+### Calcul de la quotité saisissable — Méthode
+
+> **Exemple — travailleur gagnant 2.000 € nets, sans enfant à charge :**
+> - Tranche jusqu'à 1.341 € → 0 €
+> - Tranche 1.341 → 1.440 (= 99 €) → 20% × 99 = 19,80 €
+> - Tranche 1.440 → 1.589 (= 149 €) → 30% × 149 = 44,70 €
+> - Tranche 1.589 → 1.738 (= 149 €) → 40% × 149 = 59,60 €
+> - Au-delà de 1.738 (= 262 €) → 100% × 262 = 262 €
+> - **Total saisissable : 386,10 €**
+
+> **Avec 1 enfant à charge :** 386,10 − 83 = **303,10 €**
+
+### Calculateur de quotité saisissable
+
+<ExcelViewer
+  title="Calculateur — Quotité saisissable"
+  description="Importez un fichier Excel ou utilisez le tableau ci-dessus pour vos calculs"
+  type="upload"
+/>
+
+### Application
+
+Un travailleur gagne une rémunération mensuelle nette de **2.345 €** et a **deux enfants** à charge. Son employeur reçoit un avis de saisie :
+
+**(a) Dette de téléphone impayée de 2.322 € — Montant à retenir mensuellement :**
+- Tranche jusqu'à 1.341 € → 0 €
+- 1.341 → 1.440 (99 €) × 20% = 19,80 €
+- 1.440 → 1.589 (149 €) × 30% = 44,70 €
+- 1.589 → 1.738 (149 €) × 40% = 59,60 €
+- Au-delà de 1.738 (607 €) × 100% = 607 €
+- Sous-total : 731,10 €
+- − 2 enfants à charge : − 2 × 83 = − 166 €
+- **Montant mensuel retenu : 565,10 €**
+
+**(b) Arriérés de pension alimentaire de 1.500 € — Montant à retenir mensuellement :**
+- Pas de limitation → tout le montant au-delà du minimum insaisissable (1.341 €) peut être retenu, soit **1.004 €** — et priorité absolue

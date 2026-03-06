@@ -1,0 +1,225 @@
+---
+// ExcelViewer.astro - Composant réutilisable pour tableurs Excel dans les chapitres
+// Usage dans MDX: <ExcelViewer title="Plan Comptable" file="/data/plan-comptable.xlsx" description="..." />
+
+interface Props {
+  title: string;
+  description?: string;
+  file?: string;       // Chemin vers un fichier .xlsx préchargé dans /public/data/
+  type?: 'upload' | 'static' | 'inline';  // upload = drag&drop, static = fichier fixe, inline = données inline
+  data?: { sheets: { name: string; rows: string[][] }[] };  // Pour type=inline
+}
+
+const { title, description, file, type = file ? 'static' : 'upload', data } = Astro.props;
+const widgetId = `excel-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="excel-widget" id={widgetId}>
+  <div class="excel-widget__header">
+    <div class="excel-widget__title">
+      <div class="excel-widget__icon">XLS</div>
+      <span>{title}</span>
+      {description && <span style="font-weight:400;color:var(--text-muted);font-size:0.78rem">— {description}</span>}
+    </div>
+    <div class="excel-widget__actions">
+      <button class="excel-btn export-btn" data-widget={widgetId} title="Exporter en CSV">
+        ↓ CSV
+      </button>
+      {file && (
+        <a href={file} download class="excel-btn primary" title="Télécharger le fichier Excel">
+          ↓ .xlsx
+        </a>
+      )}
+    </div>
+  </div>
+
+  <div class="excel-widget__tabs" id={`${widgetId}-tabs`}></div>
+
+  <div class="excel-widget__body">
+    <div id={`${widgetId}-content`}>
+      {type === 'upload' ? (
+        <div
+          class="excel-drop-zone"
+          id={`${widgetId}-dropzone`}
+          data-widget={widgetId}
+        >
+          <div class="drop-icon">📊</div>
+          <p><strong>Glisser un fichier .xlsx ici</strong></p>
+          <p style="margin-top:6px">ou <label style="color:var(--accent);cursor:pointer">
+            parcourir
+            <input
+              type="file"
+              accept=".xlsx,.xls,.csv"
+              style="display:none"
+              id={`${widgetId}-input`}
+              data-widget={widgetId}
+            />
+          </label></p>
+          <p style="margin-top:8px;font-size:0.75rem;color:var(--text-muted)">Formats : .xlsx, .xls, .csv</p>
+        </div>
+      ) : (
+        <div class="excel-loading" id={`${widgetId}-loading`}>
+          <div class="spinner"></div>
+          Chargement du tableur…
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ widgetId, file, type, inlineData: data }}>
+  // Load SheetJS dynamically
+  async function loadXLSX() {
+    if (window.XLSX) return window.XLSX;
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+      script.onload = () => resolve(window.XLSX);
+      document.head.appendChild(script);
+    });
+  }
+
+  function renderSheets(XLSX, workbook, widgetId) {
+    const tabsEl = document.getElementById(`${widgetId}-tabs`);
+    const contentEl = document.getElementById(`${widgetId}-content`);
+
+    // Build sheets data
+    const sheets = workbook.SheetNames.map(name => ({
+      name,
+      data: XLSX.utils.sheet_to_json(workbook.Sheets[name], { header: 1, defval: '' })
+    })).filter(s => s.data.length > 0);
+
+    if (sheets.length === 0) {
+      contentEl.innerHTML = '<p style="padding:24px;text-align:center;color:var(--text-muted)">Aucune donnée trouvée</p>';
+      return;
+    }
+
+    // Store sheets globally for export
+    window[`__excel_${widgetId}`] = sheets;
+
+    // Render tabs
+    tabsEl.innerHTML = sheets.map((s, i) => `
+      <div class="excel-tab ${i === 0 ? 'active' : ''}" data-sheet="${i}" data-widget="${widgetId}">
+        ${s.name}
+      </div>
+    `).join('');
+
+    // Tab click handlers
+    tabsEl.querySelectorAll('.excel-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabsEl.querySelectorAll('.excel-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderTable(sheets[parseInt(tab.dataset.sheet)], contentEl);
+      });
+    });
+
+    // Render first sheet
+    renderTable(sheets[0], contentEl);
+  }
+
+  function renderTable(sheet, container) {
+    const rows = sheet.data;
+    if (!rows || rows.length === 0) {
+      container.innerHTML = '<p style="padding:24px;text-align:center;color:var(--text-muted)">Feuille vide</p>';
+      return;
+    }
+
+    const headers = rows[0];
+    const body = rows.slice(1);
+
+    const isNumeric = (v) => v !== '' && !isNaN(parseFloat(String(v).replace(/\s/g,'').replace(',','.')));
+
+    container.innerHTML = `
+      <div class="excel-table-wrapper" style="max-height:420px;overflow-y:auto">
+        <table class="excel-table">
+          <thead>
+            <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
+          </thead>
+          <tbody>
+            ${body.map((row, ri) => {
+              const isTotal = String(row[0] || '').toLowerCase().includes('total') ||
+                              String(row[0] || '').toLowerCase().includes('résultat') ||
+                              String(row[0] || '').toLowerCase().includes('solde');
+              return `<tr class="${isTotal ? 'total' : ''}">
+                ${headers.map((_, ci) => {
+                  const val = row[ci] !== undefined ? row[ci] : '';
+                  const numeric = isNumeric(val);
+                  return `<td class="${numeric ? 'num' : ''} ${ci === 0 ? 'bold' : ''}">${val}</td>`;
+                }).join('')}
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // CSV Export
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.export-btn')) return;
+    const wid = e.target.closest('.export-btn').dataset.widget;
+    const data = window[`__excel_${wid}`];
+    if (!data) return;
+    const activeTab = document.getElementById(`${wid}-tabs`).querySelector('.active');
+    const sheetIdx = activeTab ? parseInt(activeTab.dataset.sheet) : 0;
+    const sheet = data[sheetIdx];
+    const csv = sheet.data.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `${sheet.name}.csv`; a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // Initialize
+  (async () => {
+    const XLSX = await loadXLSX();
+
+    if (type === 'inline' && inlineData) {
+      // Render inline data
+      const wb = {
+        SheetNames: inlineData.sheets.map(s => s.name),
+        Sheets: {}
+      };
+      inlineData.sheets.forEach(s => {
+        wb.Sheets[s.name] = XLSX.utils.aoa_to_sheet(s.rows);
+      });
+      renderSheets(XLSX, wb, widgetId);
+    } else if (type === 'static' && file) {
+      // Load file from /public
+      try {
+        const resp = await fetch(file);
+        const buf = await resp.arrayBuffer();
+        const wb = XLSX.read(buf, { type: 'array' });
+        renderSheets(XLSX, wb, widgetId);
+      } catch(e) {
+        document.getElementById(`${widgetId}-loading`).innerHTML =
+          `<p style="color:var(--text-muted);padding:24px">Fichier introuvable: ${file}</p>`;
+      }
+    } else if (type === 'upload') {
+      // Setup drag & drop
+      const dropzone = document.getElementById(`${widgetId}-dropzone`);
+      const input = document.getElementById(`${widgetId}-input`);
+
+      const handleFile = async (f) => {
+        dropzone.innerHTML = `<div class="excel-loading"><div class="spinner"></div>Chargement…</div>`;
+        const buf = await f.arrayBuffer();
+        const wb = XLSX.read(buf, { type: 'array' });
+        renderSheets(XLSX, wb, widgetId);
+      };
+
+      dropzone?.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+      dropzone?.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+      dropzone?.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('drag-over');
+        const f = e.dataTransfer.files[0];
+        if (f) handleFile(f);
+      });
+      input?.addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (f) handleFile(f);
+      });
+    }
+  })();
+</script>

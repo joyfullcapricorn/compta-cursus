@@ -1,0 +1,199 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: La suspension du contrat de travail
+coursId: legislation-sociale
+chapitreNum: 2
+resume: Maladie, accident, maternité, vacances annuelles, chômage temporaire et grève
+---
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+La **suspension** est la survenance d'événements qui rendent temporairement impossible l'exécution du contrat, sans y mettre fin. *(Art. 26 à 31/1 de la loi du 3 juillet 1978)*
+
+---
+
+## a) Retards et absences
+
+Le travailleur conserve sa rémunération journalière complète si son retard ou son absence est dû à une **cause indépendante de sa volonté** survenue sur le chemin du travail, ou s'il ne peut entamer/poursuivre son travail pour une raison indépendante de sa volonté une fois arrivé sur place. La preuve incombe au travailleur.
+
+---
+
+## b) Maladie et accident privé
+
+### Obligations du travailleur
+
+- Informer **immédiatement** l'employeur
+- Fournir un **certificat médical (CM)** si prévu par le règlement de travail ou la CCT, ou si l'employeur le demande — délai : 2 jours ouvrables
+- Le CM n'est **pas requis** pour le 1er jour d'incapacité, 3 fois par an (dérogation possible pour les entreprises de moins de 50 travailleurs)
+- Ne pas refuser la visite du **médecin-contrôleur** de l'employeur
+
+> L'accident ne peut résulter d'une **faute grave** du travailleur (conduite en état d'ivresse, participation à une bagarre, pneus lisses…).
+
+### Le salaire garanti
+
+<ExcelViewer
+  title="Salaire garanti — Maladie / Accident privé"
+  description="Selon le type de contrat et l'ancienneté du travailleur"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Tableau de synthèse",
+      rows: [
+        ["Période", "Ouvrier < 1 mois ancienneté", "Ouvrier ≥ 1 mois ancienneté (CDI ou CDD/TND ≥ 3 mois)", "Ouvrier CDD/TND < 3 mois", "Employé CDI ou CDD/TND ≥ 3 mois", "Employé CDD/TND < 3 mois", "Domestique < 1 mois", "Domestique ≥ 1 mois"],
+        ["1er → 7e jour cal.", "Mutuelle", "100% salaire brut horaire", "Mutuelle", "100% rémunération brute mensuelle", "100% rémunération brute mensuelle", "Mutuelle", "100% rémunération brute mensuelle"],
+        ["8e → 14e jour cal.", "Mutuelle", "85,88% salaire brut horaire", "Mutuelle", "86,93%", "100%", "Mutuelle", "60% rémunération brute (plafonnée)"],
+        ["15e → 30e jour cal.", "Mutuelle", "25,88% du salaire brut horaire (≤ 85,88% sur partie supérieure au plafond mensuel)", "Mutuelle", "26,93% (≤ 86,93% sur partie supérieure)", "100%", "Mutuelle", "—"],
+      ]
+    }]
+  }}
+/>
+
+**Règles particulières :**
+- **Rechute dans les 14 jours calendriers** suivant la fin de la 1re incapacité → prolongation, on reprend le salaire garanti là où on en était
+- **Nouvelle incapacité (cause différente) dans les 14 jours** → salaire garanti dû dès le 1er jour, à condition qu'il y ait eu reprise du travail au moins un jour
+
+---
+
+## c) L'accident du travail
+
+### Définition
+
+Tout accident survenu **dans le cours et par le fait de l'exécution du contrat** qui produit une lésion. La victime doit prouver : l'événement soudain, la lésion et le lien avec l'exécution du contrat.
+
+L'**accident sur le chemin du travail** couvre le trajet normal domicile ↔ lieu de travail, ainsi que les détours nécessaires et raisonnablement justifiables.
+
+### Formalités
+
+L'employeur doit souscrire une **police d'assurance-loi**. En cas d'accident, il doit établir une **déclaration d'accident** dans les 8 jours calendrier suivant le jour de l'accident.
+
+### Rémunération
+
+<ExcelViewer
+  title="Intervention de l'employeur — Accident du travail"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Tableau",
+      rows: [
+        ["Période", "Ouvrier/Domestique CDD/TND < 3 mois", "Ouvrier/Domestique CDI ou CDD/TND > 3 mois", "Employé (tous contrats)"],
+        ["1er → 7e jour cal.", "100%", "100%", "100%"],
+        ["8e → 30e jour cal.", "85,88%", "86,93%", "100%"],
+        ["Après 30 jours cal.", "Organisme assureur (90%)", "Organisme assureur (90%)", "Organisme assureur (90%)"],
+      ]
+    }]
+  }}
+/>
+
+> L'assureur rembourse l'employeur à hauteur de **90% du salaire quotidien moyen brut** (y compris prime de fin d'année et avantages en nature, hors remboursement frais de transport).
+
+---
+
+## d) Grossesse et accouchement
+
+### Congé de maternité
+
+La travailleuse bénéficie d'un congé de **15 à 19 semaines calendrier**, réparti comme suit :
+
+- **Congé prénatal** : minimum 7 jours calendrier, maximum **6 semaines** (8 semaines pour naissances multiples). La partie non prise peut être reportée après le postnatal.
+- **Congé postnatal** : **9 semaines** à partir du jour de l'accouchement, prolongeable du résidu prénatal.
+
+**Prolongations possibles :**
+- Accouchement tardif → prolongation du prénatal même si les 6 semaines sont épuisées
+- Accouchement prématuré → jusqu'à 5 semaines reportées (7 pour naissances multiples)
+- Naissances multiples → +2 semaines postnatales à charge de la mutuelle
+- Hospitalisation du nouveau-né → prolongation égale à la durée d'hospitalisation après les 7 premiers jours (max. 24 semaines)
+
+### Indemnités de maternité
+
+<ExcelViewer
+  title="Indemnités pendant le congé de maternité (à charge de la mutuelle)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Taux",
+      rows: [
+        ["Situation", "30 premiers jours civils", "À partir du 31e jour"],
+        ["Titulaire sous contrat de travail", "82% de la rémunération brute plafonnée", "75% de la rémunération brute plafonnée"],
+        ["Titulaire en incapacité (hors contrat)", "79,50%", "75%"],
+        ["Chômeuse complète contrôlée", "79,50% (60% base + 19,5% complément)", "75% (60% base + 15% complément)"],
+      ]
+    }]
+  }}
+/>
+
+### Protection contre le licenciement
+
+Dès que l'employeur est informé de la grossesse, la travailleuse est protégée jusqu'à la **fin du mois suivant le congé postnatal**. Tout licenciement durant cette période entraîne une **indemnité de 6 mois de salaire brut** en plus de l'indemnité de rupture.
+
+### Congé de naissance (père / coparent)
+
+**20 jours** à prendre dans les 4 mois suivant l'accouchement. Les **3 premiers jours** sont à charge de l'employeur ; les suivants sont pris en charge par la mutualité.
+
+---
+
+## e) Les vacances annuelles
+
+### Durée
+
+- **Employés** : 4 semaines pour une année complète de référence (2 jours par mois travaillé en régime 6j/sem, arrondi à l'unité supérieure en régime 5j/sem).
+- **Ouvriers** : durée fixée par la caisse de vacances selon le nombre de jours travaillés ou assimilés.
+
+<ExcelViewer
+  title="Tableau ouvriers — Jours de vacances selon jours travaillés (régime 5j/sem)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Ouvriers",
+      rows: [
+        ["Jours travaillés ou assimilés", "Jours de vacances légales"],
+        ["231 et plus", "20"], ["221 – 230", "19"], ["212 – 220", "18"],
+        ["202 – 211", "17"], ["192 – 201", "16"], ["182 – 191", "15"],
+        ["163 – 181", "14"], ["154 – 162", "13"], ["144 – 153", "12"],
+        ["135 – 143", "11"], ["125 – 134", "10"], ["106 – 124", "9"],
+        ["97 – 105", "8"], ["87 – 96", "7"], ["77 – 86", "6"],
+        ["64 – 76", "5"], ["48 – 63", "4"], ["39 – 47", "3"],
+        ["20 – 38", "2"], ["10 – 19", "1"], ["0 – 9", "0"],
+      ]
+    }]
+  }}
+/>
+
+### Pécule de vacances — Employés
+
+**Pécule simple** : rémunération normale pour chaque jour de vacances (soumis aux cotisations sociales et au précompte professionnel ordinaire).
+
+**Double pécule** : 92% de la rémunération brute du mois où sont prises les vacances principales, proratisé selon les mois travaillés. Pas de cotisations patronales. Retenue travailleur : 13,07% sur 85% de la rémunération brute du mois.
+
+### Pécule de vacances — Ouvriers
+
+Payé par la **caisse de vacances**. Montant brut : **15,38%** des rémunérations de l'exercice majorées à **108%**. Retenues : 1% de cotisation de solidarité + 13,07% sur 6,80% des rémunérations majorées.
+
+### Pécule de sortie — Employés
+
+À la rupture du contrat, l'employeur verse un pécule de départ correspondant aux vacances acquises pour l'année en cours (exercice de vacances en cours) et non encore prises.
+
+### Vacances supplémentaires, jeunes et seniors
+
+| Type | Condition principale | Bénéfice |
+|---|---|---|
+| Vacances supplémentaires | Débuter/reprendre une activité + 3 mois d'amorçage | Compléter jusqu'à 4 semaines |
+| Vacances jeunes | < 25 ans, fin d'études dans l'année de référence | Compléter jusqu'à 4 semaines |
+| Vacances seniors | ≥ 50 ans, reprise après chômage/invalidité | Compléter jusqu'à 4 semaines |
+
+---
+
+## f) Le chômage temporaire
+
+Couvre l'employeur empêché de permettre au travailleur d'exécuter son contrat. C'est une **décision unilatérale de l'employeur**, sous réserve de notifications légales.
+
+| Type | Cause | Indemnisation |
+|---|---|---|
+| Chômage économique | Manque de travail pour raisons économiques indépendantes de la volonté de l'employeur | ONEM |
+| Chômage pour accident technique | Accident interne lié à l'équipement, sans faute | 7 premiers jours à charge de l'employeur, puis ONEM + supplément |
+| Chômage pour intempéries | Conditions atmosphériques rendant le travail impossible | ONEM + supplément |
+
+---
+
+## g) La grève
+
+Arrêt temporaire de travail décidé volontairement par des travailleurs pour obtenir satisfaction sur des revendications. Elle suspend l'exécution du contrat des grévistes **et** des travailleurs empêchés d'exécuter leur travail à cause de la grève. L'employeur ne doit pas payer la rémunération pendant la grève. Le travailleur non gréviste peut être indemnisé par l'ONEM.

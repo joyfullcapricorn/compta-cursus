@@ -1,0 +1,224 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: La rupture du contrat de travail
+coursId: legislation-sociale
+chapitreNum: 3
+resume: Préavis, indemnités, faute grave et licenciement manifestement déraisonnable
+---
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+## a) La rupture par la volonté d'une partie
+
+### 1. Le congé
+
+Le **congé** est un acte juridique **unilatéral** par lequel une partie met fin au contrat :
+- Donné par l'**employeur** → **licenciement**
+- Donné par le **travailleur** → **démission**
+
+### 2. La motivation du licenciement (CCT 109 du 12/02/2014)
+
+S'applique aux licenciements du secteur privé depuis le 1er avril 2014. L'employeur n'est **pas tenu de motiver a priori** le licenciement, mais le travailleur a le droit d'être informé **a posteriori** des motifs concrets.
+
+<ExcelViewer
+  title="Procédure de motivation du licenciement — CCT 109"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Procédure",
+      rows: [
+        ["Étape", "Délai", "Détail"],
+        ["Demande du travailleur", "Dans les 2 mois après la fin du contrat", "Par lettre recommandée (6 mois à partir de la notification du préavis, sans dépasser 2 mois après la fin du contrat)"],
+        ["Réponse de l'employeur", "Dans les 2 mois après la demande", "Doit communiquer les motifs concrets"],
+        ["Communication spontanée de l'employeur", "Au moment du licenciement", "Dispense l'employeur de répondre à une demande ultérieure si les éléments sont suffisants"],
+        ["Sanction en cas de violation", "—", "Amende civile + charge probatoire renforcée si licenciement manifestement déraisonnable"],
+      ]
+    }]
+  }}
+/>
+
+### 3. Le congé moyennant préavis
+
+Rupture **unilatérale** du contrat avec notification d'un délai à l'issue duquel le contrat prend fin.
+
+**Forme obligatoire :** écrit daté et signé, mentionnant la **date de début** et la **durée du préavis**. À défaut → nullité + indemnité de rupture.
+
+**Mode de notification :**
+- Par l'**employeur** : lettre recommandée ou exploit d'huissier
+- Par le **travailleur** : remise de main à main (copie signée pour réception) ou lettre recommandée
+
+> **Attention :** La lettre recommandée est réputée reçue le **3e jour ouvrable** suivant l'envoi. Le préavis débute le **lundi qui suit** la notification.
+
+**Calcul du délai de préavis — contrats conclus à partir du 1er janvier 2014 :**
+
+<ExcelViewer
+  title="Délais de préavis — contrats à partir du 1er janvier 2014"
+  description="Exprimés en semaines — voir tableau complet sur l'école virtuelle"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Licenciement",
+      rows: [
+        ["Ancienneté", "Délai de préavis (semaines)"],
+        ["0 à < 3 mois", "1"],
+        ["3 à < 6 mois", "3"],
+        ["6 à < 9 mois", "4"],
+        ["9 à < 12 mois", "5"],
+        ["12 à < 15 mois", "6"],
+        ["15 à < 18 mois", "7"],
+        ["18 à < 21 mois", "8"],
+        ["21 à < 24 mois", "9"],
+        ["2 à < 3 ans", "10"],
+        ["3 à < 4 ans", "12"],
+        ["4 à < 5 ans", "13"],
+        ["5 à < 6 ans", "15"],
+        ["6 à < 7 ans", "18"],
+        ["7 à < 8 ans", "21"],
+        ["8 à < 9 ans", "24"],
+        ["9 à < 10 ans", "27"],
+        ["10 à < 11 ans", "30"],
+        ["11 à < 12 ans", "33"],
+        ["12 à < 13 ans", "36"],
+        ["13 à < 14 ans", "39"],
+        ["14 à < 15 ans", "42"],
+        ["15 à < 16 ans", "45"],
+        ["16 à < 17 ans", "48"],
+        ["17 à < 18 ans", "51"],
+        ["18 à < 19 ans", "54"],
+        ["19 à < 20 ans", "57"],
+        ["20 ans et plus", "62"],
+      ]
+    }, {
+      name: "Démission",
+      rows: [
+        ["Ancienneté", "Délai de préavis (semaines)"],
+        ["0 à < 3 mois", "1"],
+        ["3 à < 6 mois", "2"],
+        ["6 à < 9 mois", "3"],
+        ["9 à < 12 mois", "4"],
+        ["12 à < 18 mois", "5"],
+        ["18 à < 24 mois", "6"],
+        ["2 à < 4 ans", "7"],
+        ["4 à < 5 ans", "9"],
+        ["5 à < 6 ans", "10"],
+        ["6 à < 7 ans", "12"],
+        ["7 à < 8 ans", "14"],
+        ["8 à < 9 ans", "16"],
+        ["9 à < 10 ans", "18"],
+        ["10 à < 11 ans", "20"],
+        ["11 à < 12 ans", "22"],
+        ["12 à < 13 ans", "24"],
+        ["13 à < 14 ans", "26"],
+        ["14 à < 15 ans", "28"],
+        ["15 ans et plus", "13 semaines (max)"],
+      ]
+    }]
+  }}
+/>
+
+**Calcul pour les employés dont le contrat a été conclu avant le 1er janvier 2014 :**
+
+- **Étape 1** : ancienneté au 31/12/2013
+  - Rémunération annuelle brute ≤ 32.254 € → 3 mois par tranche de 5 ans d'ancienneté entamée
+  - Rémunération annuelle brute > 32.254 € → 1 mois par année d'ancienneté entamée (minimum 3 mois)
+- **Étape 2** : ancienneté à partir du 1/01/2014 (selon tableau ci-dessus)
+- **Étape 3** : Délai total = Étape 1 + Étape 2
+
+> **Calcul de la rémunération annuelle brute :** somme des rémunérations brutes des 12 derniers mois, ou dernière rémunération mensuelle brute × 12,92 (× 13,92 si prime de fin d'année).
+
+### 4. Effet de la suspension du contrat sur le préavis
+
+<ExcelViewer
+  title="Incidence des suspensions sur le cours du préavis"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Effets",
+      rows: [
+        ["Cause de suspension", "Effet sur le préavis"],
+        ["Maladie, accident privé", "Suspend le cours du préavis"],
+        ["Accident du travail", "Suspend le cours du préavis"],
+        ["Vacances annuelles", "Suspend le cours du préavis"],
+        ["Repos de maternité / paternité", "Suspend le cours du préavis"],
+        ["Écartement femme enceinte", "Suspend le cours du préavis"],
+        ["Chômage économique ou intempéries", "Suspend le cours du préavis"],
+        ["Chômage technique", "N'interrompt pas le cours du préavis"],
+        ["Jours fériés", "N'interrompt pas le cours du préavis"],
+        ["Petits chômages (congés de circonstance)", "N'interrompt pas le cours du préavis"],
+        ["Congé sans solde", "N'interrompt pas le cours du préavis"],
+      ]
+    }]
+  }}
+/>
+
+---
+
+## b) La rupture avec indemnité compensatoire de préavis
+
+Rupture **sans préavis** accompagnée d'une indemnité compensant ce préavis.
+
+- Pas de condition de forme particulière (écrit conseillé)
+- Peut prendre cours **à tout moment**
+- Doit être payée **immédiatement** au moment du départ (sauf accord écrit du travailleur pour versement échelonné)
+- Le travailleur qui rompt immédiatement est également redevable de cette indemnité
+
+**Calcul :** sur la base du préavis qui aurait dû être presté, couvrant la rémunération **et** les avantages sociaux acquis.
+
+**Cotisations sociales :** soumise normalement aux retenues travailleur et patronal.
+
+---
+
+## c) La rupture du CDD
+
+Le CDD prend fin **de plein droit** à la date convenue, sans préavis ni indemnité. En cas de suspension, le terme n'est **pas reporté**. Si les parties continuent après l'échéance → le contrat devient un **CDI**.
+
+**Rupture avant terme** possible pour : force majeure, faute grave, accord commun, ou par la volonté d'une partie (avec indemnité).
+
+---
+
+## d) Les autres types de rupture
+
+### La rupture pour faute grave
+
+> « Toute faute qui rend définitivement et immédiatement impossible toute collaboration professionnelle entre l'employeur et le travailleur. »
+
+- Prouvée par **toutes voies de droit**
+- Rupture notifiée dans les **3 jours ouvrables** suivant la connaissance certaine du fait reproché
+- Le fait reproché notifié par écrit de façon précise et détaillée dans les **3 jours ouvrables** suivant la rupture
+- **Pas de préavis, pas d'indemnité**
+
+### Autres cas de rupture
+
+- **Force majeure** (art. 26 et 32 LCT)
+- **Rupture de commun accord**
+- **Acte équipollent à rupture** : comportement d'une partie rendant la poursuite du contrat impossible
+
+---
+
+## e) Le licenciement manifestement déraisonnable (art. 8 CCT 109)
+
+### Définition
+
+Licenciement d'un travailleur en **CDI** basé sur des motifs sans lien avec son aptitude ou sa conduite, ni fondés sur les nécessités de l'entreprise, et qu'un employeur normal et raisonnable n'aurait jamais décidé.
+
+### Charge de la preuve
+
+<ExcelViewer
+  title="Charge de la preuve — Licenciement manifestement déraisonnable"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Charge de la preuve",
+      rows: [
+        ["Situation", "Charge de la preuve"],
+        ["L'employeur a communiqué les motifs", "L'employeur prouve les motifs — le travailleur conteste prouve qu'ils ne sont pas la vraie cause"],
+        ["L'employeur n'a pas communiqué les motifs (demande du travailleur)", "L'employeur doit prouver les motifs et que le licenciement n'est pas manifestement déraisonnable"],
+        ["L'employeur n'a pas communiqué les motifs (pas de demande du travailleur)", "Le travailleur doit prouver les motifs et le caractère manifestement déraisonnable"],
+      ]
+    }]
+  }}
+/>
+
+### Indemnisation
+
+En cas de licenciement manifestement déraisonnable → indemnité comprise entre **3 et 17 semaines** de rémunération.

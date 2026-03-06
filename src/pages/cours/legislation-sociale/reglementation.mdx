@@ -1,0 +1,250 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Réglementation du travail — durée, congés et rémunération
+coursId: legislation-sociale
+chapitreNum: 4
+resume: Heures de travail, heures supplémentaires, jours fériés, fiche de paie et avantages en nature
+---
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+## A. La durée du travail
+
+### a) Définition
+
+La **durée du travail** est « le temps pendant lequel le travailleur est à la disposition de son employeur ».
+
+<ExcelViewer
+  title="Ce qui est inclus ou non dans la durée du travail"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Inclus / Exclus",
+      rows: [
+        ["Inclus ✓", "Exclus ✗"],
+        ["Temps d'attente en service de garde", "Temps de pause (repas compris)"],
+        ["Formation ou instructions en rapport avec le travail", "Déplacements domicile – lieu de travail"],
+        ["Déplacement entre deux lieux de travail pour le même employeur", ""],
+      ]
+    }]
+  }}
+/>
+
+### b) Les limites légales
+
+<ExcelViewer
+  title="Limites légales de la durée du travail"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Limites",
+      rows: [
+        ["Règle", "Limite"],
+        ["Minimum par prestation", "3 heures"],
+        ["Minimum hebdomadaire (temps partiel)", "1/3 du temps plein de la catégorie"],
+        ["Maximum journalier", "8 heures"],
+        ["Maximum hebdomadaire (temps plein)", "40 heures (avec respect d'une durée moyenne de 38h ou moins sur la période de référence)"],
+      ]
+    }]
+  }}
+/>
+
+De nombreuses dérogations existent : travail de nuit, équipes successives, règles sectorielles ou CCT, travaux de nature particulière, surcroît extraordinaire de travail.
+
+### c) Les heures supplémentaires
+
+Lorsque les limites normales sont dépassées :
+- Les heures supplémentaires doivent être **récupérées** (repos compensatoires) dans le trimestre qui suit (prolongeable à 1 an par AR, CCT ou modification du règlement de travail)
+- Le travailleur peut **renoncer** à la récupération pour un certain nombre d'heures en cas de surcroît extraordinaire ou de nécessité imprévue
+
+**Paiement du sursalaire :**
+
+<ExcelViewer
+  title="Sursalaire sur heures supplémentaires"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Sursalaire",
+      rows: [
+        ["Situation", "Sursalaire", "Moment du paiement"],
+        ["Heures au-delà de 9h/jour ou 40h/semaine (ou limites CCT inférieures)", "50%", "Au moment de la prestation des HS"],
+        ["Heures un dimanche ou jour férié (ou jour de remplacement)", "100%", "Au moment de la prestation des HS"],
+        ["Base (100%) des heures supplémentaires", "—", "Au moment de la prise du repos compensatoire"],
+      ]
+    }]
+  }}
+/>
+
+**Heures supplémentaires volontaires :** le travailleur peut en demander, limitées à **100h/an** sauf dérogation CCT.
+
+### d) Les temps de pause
+
+Dès que la durée de travail dépasse **6 heures**, le travailleur a droit à une pause d'au moins **15 minutes** (sauf règles particulières CCT).
+
+### e) Le travail à temps partiel
+
+Durée journalière, hebdomadaire ou mensuelle inférieure au temps plein. Les heures effectuées en plus du contrat (sans dépasser le temps plein) sont des **heures complémentaires** — en principe, pas de sursalaire.
+
+### f & g) Horaires flexibles et flottants
+
+- **Horaires flexibles** : l'employeur peut temporairement déroger aux limites normales sans sursalaire pour adapter les horaires à son activité.
+- **Horaires flottants/dynamiques** : le travailleur détermine lui-même son horaire dans le respect de plages fixes et mobiles.
+
+### h) Travail sur 4 jours
+
+Le travailleur peut demander à prester son horaire sur **4 jours par semaine** ou selon un régime **hebdomadaire alterné**.
+
+---
+
+## B. Les congés
+
+### a) Les jours fériés légaux
+
+Les 10 jours fériés légaux, rémunérés normalement par l'employeur :
+
+<ExcelViewer
+  title="Les 10 jours fériés légaux en Belgique"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Fériés",
+      rows: [
+        ["Date", "Jour férié"],
+        ["1er janvier", "Jour de l'An"],
+        ["Lundi de Pâques", "Lundi de Pâques (date variable)"],
+        ["1er mai", "Fête du Travail"],
+        ["Ascension", "Ascension (date variable)"],
+        ["Lundi de Pentecôte", "Lundi de Pentecôte (date variable)"],
+        ["21 juillet", "Fête nationale"],
+        ["15 août", "Assomption"],
+        ["1er novembre", "Toussaint"],
+        ["11 novembre", "Armistice"],
+        ["25 décembre", "Noël"],
+      ]
+    }]
+  }}
+/>
+
+Si un férié tombe un **dimanche ou un jour habituel de repos** → récupéré sur un jour habituellement travaillé. Des jours fériés extra-légaux existent dans certains secteurs.
+
+### b) Les congés de circonstance (« petits chômages »)
+
+Absences avec maintien de la rémunération normale pour événements personnels (mariage, décès d'un proche, naissance…). Le travailleur doit prévenir préalablement l'employeur et fournir une pièce justificative si demandée.
+
+### c) Les autres congés
+
+- Congé d'adoption
+- Congé pour soins d'accueil (placement familial)
+- Congés pour raisons impérieuses (maladie/accident/hospitalisation d'un proche, dommages matériels graves, citation à comparaître…)
+
+---
+
+## C. La rémunération
+
+### a) La rémunération brute
+
+**Fixation :** librement entre les parties, dans le respect des minimums fixés par les CCT des commissions paritaires, ou à défaut, du **RMMMG** (Revenu Minimum Mensuel Moyen Garanti — CCT n°43).
+
+**Modalités de paiement :**
+
+<ExcelViewer
+  title="Règles de paiement de la rémunération"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Modalités",
+      rows: [
+        ["Critère", "Ouvriers", "Employés"],
+        ["Fréquence minimum", "2 fois par mois (max 16 jours d'intervalle)", "1 fois par mois"],
+        ["Forme", "Monnaie scripturale (virement bancaire) — de la main à la main si prévu par CCT/usage", "Idem"],
+        ["Monnaie", "Monnaie légale du pays du travailleur ou du pays de travail (au choix du travailleur)", "Idem"],
+      ]
+    }, {
+      name: "Dates limite",
+      rows: [
+        ["Situation", "Date limite de paiement"],
+        ["Date fixée par CCT", "Aucune date limite légale"],
+        ["Date fixée dans le règlement de travail", "Au plus tard le 7e jour ouvrable suivant la période de travail"],
+        ["Rien de prévu", "Au plus tard le 4e jour ouvrable suivant la période de travail"],
+        ["Virement bancaire", "Réputé payé le jour où le compte du travailleur est crédité"],
+      ]
+    }]
+  }}
+/>
+
+### b) La fiche de paie (décompte de paie)
+
+L'employeur doit remettre un **décompte de paie** à chaque règlement périodique (art. 15 de la loi du 12/04/1965).
+
+<ExcelViewer
+  title="Mentions obligatoires de la fiche de paie (A.R. du 27/09/1966)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Mentions",
+      rows: [
+        ["N°", "Mention obligatoire"],
+        ["1", "Nom et adresse de l'employeur"],
+        ["2", "Nom et initiale du prénom du travailleur"],
+        ["3", "Numéro matricule du travailleur"],
+        ["4", "Période à laquelle se rapporte le décompte"],
+        ["5", "Importance des prestations (heures, jours, mois…)"],
+        ["6", "Rémunération de base + détail : travail effectué, sursalaire HS, jours fériés, maintien de rémunération, primes, avantages en nature"],
+        ["6c", "Total rémunération brute"],
+        ["7", "Retenues sécurité sociale (cotisations travailleur)"],
+        ["8", "Sommes non soumises aux retenues SS"],
+        ["9", "Montant imposable = (6 + 8) - 7"],
+        ["10", "Précompte professionnel"],
+        ["11", "Sommes non imposables"],
+        ["12", "Somme nette octroyée = (9 + 11) - 10"],
+        ["13", "Montants à déduire (avances, avantages en nature, cessions, saisies…)"],
+        ["14", "Montant net à payer en espèces"],
+      ]
+    }]
+  }}
+/>
+
+### c) La rémunération en nature
+
+Partie de la rémunération payée sous forme d'avantages non monétaires. Ne peut pas être **imposée** au travailleur. Soumise aux cotisations SS et au précompte professionnel (évaluée selon forfait légal ou valeur réelle).
+
+**Éléments concernés :** logement, eau/gaz/électricité/chauffage, nourriture sur le lieu de travail, jouissance d'un terrain, outils et vêtements de travail, matières nécessaires au travail.
+
+**Plafonds :**
+- 50% pour les domestiques/concierges/apprentis complètement logés et nourris
+- 40% si le travailleur dispose d'une maison ou appartement
+- 20% dans les autres cas
+
+### d) Les avantages de toute nature (ATN)
+
+Tout avantage consenti par l'employeur en raison ou à l'occasion de l'activité professionnelle. En principe soumis aux cotisations sociales et au précompte professionnel.
+
+**Mise à disposition gratuite d'une habitation :**
+
+- *Social :* cotisations sur la valeur locative présumée
+- *Fiscal :* ATN = 100/60 × RC indexé × 2 (déduction du loyer éventuel payé par le travailleur)
+- Si habitation **meublée** → ATN majoré de 2/3
+
+**Exemple :** RC indexé = 3.325 € → ATN = 100/60 × 3.325 × 2 = **11.083 €**
+
+**Chauffage et électricité (immeuble mis à disposition par l'employeur) :**
+
+<ExcelViewer
+  title="ATN Chauffage et électricité (immeuble mis à disposition)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Montants annuels",
+      rows: [
+        ["Catégorie", "Chauffage (€/an)", "Électricité hors chauffage (€/an)"],
+        ["Personnel de direction", "2.430", "1.210"],
+        ["Autres travailleurs", "1.090", "550"],
+      ]
+    }]
+  }}
+/>
+
+**Repas gratuits ou à prix réduits :**
+- Petit déjeuner : **0,55 €** / Repas de midi : **1,09 €** / Repas du soir : **0,84 €** (si gratuit)
+- Si prix payé < 1,09 € → ATN = différence entre 1,09 € et le prix payé
+- Si prix payé ≥ 1,09 € → pas d'ATN

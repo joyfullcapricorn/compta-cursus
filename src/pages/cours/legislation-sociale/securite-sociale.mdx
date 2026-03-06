@@ -1,0 +1,181 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: La sécurité sociale
+coursId: legislation-sociale
+chapitreNum: 6
+resume: Assujettissement à l'ONSS, cotisations de base, cotisation spéciale et réductions patronales
+---
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+## A. L'assujettissement
+
+### Introduction
+
+L'assujettissement à la sécurité sociale est une **obligation générale** pour tous les employeurs établis en Belgique. Son objet est le prélèvement de **cotisations** (à charge du travailleur et de l'employeur) pour financer les organismes de redistribution sociale. Il concerne les travailleurs liés par un contrat de travail ou d'apprentissage, ainsi que d'autres catégories (artistes, mandataires de certaines associations…).
+
+### Obligations de l'employeur
+
+<ExcelViewer
+  title="Obligations de l'employeur vis-à-vis de l'ONSS"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Obligations",
+      rows: [
+        ["Obligation", "Détail"],
+        ["1. Immatriculation", "Lors du premier engagement : déclaration électronique via l'outil WIDE sur le portail ONSS → attribution d'un numéro d'immatriculation"],
+        ["2. DIMONA", "Déclaration immédiate pour chaque travailleur avec dates de début et de fin d'occupation"],
+        ["3. DmfA (trimestrielle)", "Déclaration électronique trimestrielle des rémunérations et prestations. Délai : dernier jour du mois suivant le trimestre (sans secrétariat social) ou 20e jour ouvrable du 2e mois suivant (avec secrétariat social)"],
+        ["4. Prélèvement et reversement", "Prélever la cotisation personnelle du travailleur et la reverser avec les cotisations patronales à l'ONSS"],
+        ["5. Paiement des cotisations", "Dans les délais légaux (voir provisions)"],
+        ["6. Provisions trimestrielles", "Si cotisations de l'avant-dernier trimestre ≥ 4.000 € → paiement de provisions mensuelles"],
+      ]
+    }]
+  }}
+/>
+
+### Calendrier des provisions trimestrielles
+
+<ExcelViewer
+  title="Provisions trimestrielles ONSS (cotisations avant-dernier trimestre ≥ 4.000 €)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Provisions",
+      rows: [
+        ["Trimestre", "1re provision", "2e provision", "3e provision", "Solde"],
+        ["T1", "30% — 5 février", "30% — 5 mars", "25% — 5 avril", "30 avril"],
+        ["T2", "30% — 5 mai", "30% — 6 juin", "25% — 5 juillet", "31 juillet"],
+        ["T3", "30% — 5 août", "30% — 5 septembre", "25% — 5 octobre", "31 octobre"],
+        ["T4", "30% — 5 novembre", "35% — 5 décembre", "15% — 5 janvier", "31 janvier"],
+      ]
+    }]
+  }}
+/>
+
+> Si les cotisations de l'avant-dernier trimestre sont **inférieures à 4.000 €** → paiement unique le **dernier jour du mois** suivant la fin du trimestre.
+>
+> Si l'employeur n'avait pas de cotisations pour le trimestre de référence → provision forfaitaire de **450 €** au plus tard le 5 de chaque mois dès l'engagement d'un 3e travailleur.
+
+---
+
+## B. Les cotisations
+
+La base de calcul est la **rémunération brute** du travailleur.
+- **Employés :** 100% des rémunérations
+- **Ouvriers :** 108% des rémunérations (pour financer le pécule simple de vacances payé par l'ONVA)
+
+### 1. Cotisations de base
+
+Elles financent : assurance maladie-invalidité, allocations familiales, chômage, vacances annuelles ouvriers, accidents du travail, maladies professionnelles, pensions.
+
+<ExcelViewer
+  title="Cotisations sociales de base"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Cotisations",
+      rows: [
+        ["", "Ouvriers", "Employés", "Domestiques", "Apprentis"],
+        ["À charge du travailleur", "13,07%", "13,07%", "13,07%", "—"],
+        ["À charge de l'employeur", "Voir barème ONSS (varie selon catégorie et réductions)", "Voir barème ONSS", "Voir barème ONSS", "Voir barème ONSS"],
+      ]
+    }]
+  }}
+/>
+
+### 2. Autres cotisations particulières
+
+- **Cotisation sur le double pécule de vacances :** 13,07% du pécule de 3 semaines et 2 jours (à charge du travailleur)
+- **Cotisation patronale sur le double pécule :** 1,60% sur le double pécule payé par l'employeur ou la caisse de vacances
+- **Cotisation spéciale de sécurité sociale (CSSS)**
+
+### Cotisation spéciale de sécurité sociale
+
+Calculée en fin d'année fiscale selon les revenus imposables du ménage.
+
+<ExcelViewer
+  title="Cotisation spéciale de sécurité sociale — Imposition commune"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Imposition commune",
+      rows: [
+        ["Revenus imposables annuels nets du ménage", "Calcul", "Maximum annuel"],
+        ["Moins de 18.592,02 €", "0 €", "0 €"],
+        ["De 18.592,02 € à 21.070,96 €", "5% × (revenu − 18.592,02 €)", "123,95 €"],
+        ["De 21.070,97 € à 60.181,95 €", "123,95 € + 1,3% × (revenu − 21.070,96 €)", "632,39 €"],
+        ["De 60.181,96 € à 74.688 €", "Forfait 632,39 €", "632,39 €"],
+        ["De 74.688,01 € à 81.944 €", "632,39 € + 1,3629% × (revenu − 74.688,01 €)", "731,28 €"],
+        ["81.944,01 € et plus", "Forfait 731,28 €", "731,28 €"],
+      ]
+    }, {
+      name: "Imposition isolée",
+      rows: [
+        ["Revenus imposables annuels nets du ménage", "Calcul", "Maximum annuel"],
+        ["Moins de 18.592,02 €", "0 €", "0 €"],
+        ["De 18.592,02 € à 21.070,96 €", "5% × (revenu − 18.592,02 €)", "123,95 €"],
+        ["De 21.070,97 € à 37.344 €", "123,95 € + 1,3% × (revenu − 21.070,96 €)", "335,50 €"],
+        ["De 37.344,01 € à 40.997,26 €", "335,50 € + 4,009% × (revenu − 37.344 €)", "481,16 €"],
+        ["De 40.997,27 € à 60.181,95 €", "481,16 € + 1,2996% × (revenu − 40.997,26 €)", "731,54 €"],
+        ["60.181,95 € et plus", "Forfait 731,28 €", "731,28 €"],
+      ]
+    }]
+  }}
+/>
+
+### CSSS mensuelle sur la fiche de paie
+
+<ExcelViewer
+  title="CSSS mensuelle — Calcul sur la fiche de paie"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Mensuel",
+      rows: [
+        ["Salaire brut ONSS mensuel", "Imposition commune", "Imposition isolée"],
+        ["De 1.095,10 € à 1.945,38 €", "5,15 € si ménage à deux revenus", "0 €"],
+        ["De 1.945,39 € à 2.190,18 €", "5,90% × (salaire − 1.945,38 €) — min 5,15 € (deux revenus)", "4,22% × (salaire − 1.945,38 €)"],
+        ["De 2.190,19 € à 3.737 €", "14,44 € + 1,1% × (salaire − 2.190,18 €) — max 51,64 € (deux rev.) / 60,94 € (un rev.)", "10,33 € + 1,1% × (salaire − 2.190,18 €)"],
+        ["De 3.737,01 € à 4.100 €", "Même formule avec même maximum", "27,35 € + 3,38% × (salaire − 3.737 €)"],
+        ["De 4.100,01 € à 6.038,82 €", "Même formule avec même maximum", "39,61 € + 1,1% × (salaire − 4.100 €)"],
+        ["6.038,83 € et plus", "Même formule avec même maximum", "60,94 €"],
+      ]
+    }]
+  }}
+/>
+
+---
+
+## C. Les réductions de cotisations patronales
+
+### Réductions structurelles
+
+Réduction **générale et automatique** accordée à tout employeur du secteur privé occupant des travailleurs soumis à l'ensemble des secteurs de la sécurité sociale. Varient en fonction du salaire trimestriel, de la catégorie du travailleur et du volume de ses prestations.
+
+### Réductions groupes-cible
+
+Visent à favoriser certaines catégories d'employeurs ou l'engagement/maintien de certaines catégories de travailleurs. Suite à la 6e réforme de l'État, certaines ont été transférées aux **Régions** (et à la communauté germanophone).
+
+Consistent généralement en une **réduction forfaitaire** par trimestre et par travailleur pour un nombre déterminé de trimestres.
+
+<ExcelViewer
+  title="Exemples de réductions groupes-cible"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Groupes-cible",
+      rows: [
+        ["Catégorie", "Compétence", "Principe"],
+        ["Premiers engagements (1er, 2e, 3e travailleur…)", "Fédéral / Régional", "Réduction forfaitaire pendant plusieurs trimestres"],
+        ["Jeunes travailleurs peu qualifiés", "Régional", "Réduction forfaitaire limitée dans le temps"],
+        ["Travailleurs âgés (≥ 55 ans ou ≥ 57 ans selon région)", "Régional", "Réduction forfaitaire"],
+        ["Personnes en situation de handicap", "Régional", "Réduction spécifique"],
+        ["Travailleurs en restructuration", "Fédéral", "Réduction spécifique"],
+      ]
+    }]
+  }}
+/>
+
+> **Remarque :** Les montants précis des réductions structurelles et groupes-cible évoluent régulièrement. Se référer aux circulaires ONSS en vigueur pour les montants actualisés.

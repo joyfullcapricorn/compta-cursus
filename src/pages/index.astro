@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { COURS, buildSearchIndex } from '../data/cours';
+
+const searchIndex = buildSearchIndex();
+const searchIndexJSON = JSON.stringify(searchIndex);
+---
+
+<Layout title="Accueil" description="Cursus complet de comptabilité générale">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__eyebrow">
+      <span>✦</span> Cursus Comptabilité Générale
+    </div>
+    <h1 class="hero__title animate-up">
+      Maîtrisez la<br/><em>comptabilité</em> pas à pas
+    </h1>
+    <p class="hero__subtitle animate-up" style="animation-delay:80ms">
+      {COURS.length} cours · Cursus de comptabilité belge
+    </p>
+
+    <!-- Search -->
+    <div class="search-wrapper animate-up" style="animation-delay:140ms" id="search-container">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        class="search-bar"
+        id="search-input"
+        placeholder="Rechercher un cours, un chapitre, un concept…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="search-clear" id="search-clear" aria-label="Effacer">✕</button>
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <p class="search-results-count" id="search-count"></p>
+  </section>
+
+  <!-- Cours Grid -->
+  <main class="section">
+    <div class="section__header">
+      <h2>Tous les cours</h2>
+      <span class="section__count" id="grid-count">{COURS.length} cours</span>
+    </div>
+    <div class="cours-grid" id="cours-grid">
+      {COURS.map((cours) => (
+        <a href={`/cours/${cours.id}`} class="card" data-cours-id={cours.id} style="text-decoration:none">
+          <div class="card__header">
+            <div class={`card__icon ${cours.color}`}>{cours.emoji}</div>
+            
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">{cours.titre}</h3>
+            <p class="card__desc">{cours.description}</p>
+          </div>
+          <div class="card__footer">
+            <span class="card__chapters">
+              <span>📄</span>
+              {cours.chapitres.length === 0 ? 'À venir' : cours.chapitres.length + ' chapitre' + (cours.chapitres.length > 1 ? 's' : '')}
+            </span>
+            <span class="card__link">
+              Voir le cours <span>→</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+
+</Layout>
+
+<script define:vars={{ searchIndexJSON }}>
+  const searchIndex = JSON.parse(searchIndexJSON);
+
+  const input = document.getElementById('search-input');
+  const resultsEl = document.getElementById('search-results');
+  const clearBtn = document.getElementById('search-clear');
+  const countEl = document.getElementById('search-count');
+  const gridEl = document.getElementById('cours-grid');
+  const gridCount = document.getElementById('grid-count');
+
+  function highlight(text, query) {
+    if (!query) return text;
+    const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return String(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(query) {
+    if (!query.trim()) return [];
+    const q = query.toLowerCase().trim();
+    return searchIndex.filter(item =>
+      item.titre.toLowerCase().includes(q) ||
+      item.description.toLowerCase().includes(q) ||
+      (item.coursTitre && item.coursTitre.toLowerCase().includes(q))
+    ).slice(0, 12);
+  }
+
+  function renderResults(query) {
+    const results = search(query);
+
+    if (!query.trim()) {
+      resultsEl.classList.remove('open');
+      countEl.textContent = '';
+      // Reset grid
+      document.querySelectorAll('[data-cours-id]').forEach(el => el.classList.remove('hidden'));
+      gridCount.textContent = `${document.querySelectorAll('[data-cours-id]').length} cours`;
+      return;
+    }
+
+    // Filter grid cards
+    const coursIds = [...new Set(results
+      .filter(r => r.type === 'cours').map(r => r.id)
+      .concat(results.filter(r => r.type === 'chapitre').map(r => r.coursId))
+    )];
+
+    document.querySelectorAll('[data-cours-id]').forEach(el => {
+      const id = el.dataset.coursId;
+      el.classList.toggle('hidden', !coursIds.includes(id));
+    });
+
+    const visible = coursIds.length;
+    gridCount.textContent = visible === 0
+      ? 'Aucun résultat'
+      : `${visible} cours trouvé${visible > 1 ? 's' : ''}`;
+
+    // Dropdown results
+    if (results.length === 0) {
+      resultsEl.innerHTML = `<div class="search-empty">Aucun résultat pour "<strong>${query}</strong>"</div>`;
+      resultsEl.classList.add('open');
+      countEl.textContent = 'Aucun résultat';
+      return;
+    }
+
+    const cours = results.filter(r => r.type === 'cours');
+    const chapitres = results.filter(r => r.type === 'chapitre');
+
+    let html = '';
+
+    if (cours.length > 0) {
+      html += `<div class="search-result-group">
+        <div class="search-result-group-label">Cours</div>
+        ${cours.map(r => `
+          <a href="${r.slug}" class="search-result-item">
+            <div class="search-result-item__icon">${r.emoji}</div>
+            <div class="search-result-item__content">
+              <div class="search-result-item__title">${highlight(r.titre, query)}</div>
+              <div class="search-result-item__excerpt">${highlight(r.description, query)}</div>
+            </div>
+          </a>
+        `).join('')}
+      </div>`;
+    }
+
+    if (chapitres.length > 0) {
+      html += `<div class="search-result-group">
+        <div class="search-result-group-label">Chapitres</div>
+        ${chapitres.map(r => `
+          <a href="${r.slug}" class="search-result-item">
+            <div class="search-result-item__icon">${r.emoji}</div>
+            <div class="search-result-item__content">
+              <div class="search-result-item__title">${highlight(r.titre, query)}</div>
+              <div class="search-result-item__subtitle">${r.coursTitre}</div>
+              <div class="search-result-item__excerpt">${highlight(r.description, query)}</div>
+            </div>
+          </a>
+        `).join('')}
+      </div>`;
+    }
+
+    resultsEl.innerHTML = html;
+    resultsEl.classList.add('open');
+    countEl.textContent = `${results.length} résultat${results.length > 1 ? 's' : ''}`;
+  }
+
+  let debounce;
+  input.addEventListener('input', (e) => {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => renderResults(e.target.value), 200);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    renderResults('');
+    input.focus();
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#search-container')) {
+      resultsEl.classList.remove('open');
+    }
+  });
+
+  // Keyboard nav
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      resultsEl.classList.remove('open');
+      input.blur();
+    }
+  });
+</script>
