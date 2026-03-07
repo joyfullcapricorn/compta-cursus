@@ -1,0 +1,199 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Les opérations financières courantes
+coursId: comptabilite-generale
+chapitreNum: 7
+chapitreId: cg-operations-financieres
+resume: Valeurs échues à l'encaissement, établissements de crédit, caisses, virements internes, différences de change, cryptomonnaies et arrondissements.
+---
+
+## Vue d'ensemble — Classe 5
+
+| Compte | Intitulé |
+|---|---|
+| **54** | Valeurs échues à l'encaissement |
+| **55** | Établissements financiers (de crédit) |
+| **57** | Caisses |
+| **58** | Virements / transferts internes |
+
+---
+
+## 1. Les valeurs échues à l'encaissement (54)
+
+Valeurs remises à l'encaissement pour lesquelles **aucun extrait de compte n'existe encore** : effets, coupons, chèques, titres.
+
+| Sous-compte | Contenu |
+|---|---|
+| 540 | Effets à l'encaissement |
+| 541 | Coupons (5410 dividendes, 5411 intérêts) |
+| 542 | Chèques à l'encaissement |
+| 543 | Titres à l'encaissement |
+
+### Fonctionnement du compte 542 — Chèques à l'encaissement
+
+1. Réception du chèque → **Débit 542** / Crédit 400 Clients
+2. Dépôt auprès du banquier → (en attente de l'extrait)
+3. Réception de l'extrait → **Débit 550** / Crédit 542
+
+#### Exemple
+
+- 4/10 : réception du chèque de M. Liégeois (facture 1 454,87 €)
+  - Débit 542 : 1 454,87 € / Crédit 400 : 1 454,87 €
+- 7/10 : extrait n°82 confirme l'encaissement
+  - Débit 550 : 1 454,87 € / Crédit 542 : 1 454,87 €
+
+---
+
+## 2. Les établissements de crédit (55)
+
+### 5500 Compte courant
+
+Mouvementé **uniquement à l'appui des extraits de compte**. Un compte 550 par compte bancaire détenu.
+
+⚠️ Les soldes **créditeurs** en fin d'année doivent être transférés au passif → compte **433 Établissements de crédit — Dettes en compte courant** (compensation créances/dettes interdite).
+
+### 5501 Chèques émis
+
+Utilisé entre l'**émission du chèque** et la réception de l'extrait de compte.
+
+#### Exemple
+
+- 6/01 : réception facture fournisseur Dejardin 600 € + TVA 6 %
+  - Débit 604 : 600 € + Débit 41159 : 36 € / Crédit 440 : 636 €
+- 7/01 : émission du chèque
+  - Débit 440 : 636 € / Crédit 5501 : 636 €
+- 11/01 : extrait n°4 confirme le paiement
+  - Débit 5501 : 636 € / Crédit 5500 : 636 €
+
+### 5502 Virements émis
+
+Même fonctionnement que les chèques émis — utilisé tant que le paiement n'est pas instantané et repris en extrait.
+
+Depuis le 04/03/2019 : certaines banques proposent des **virements instantanés**, permettant d'obtenir directement l'extrait.
+
+### 5504 / 5505 Cartes de crédit (Visa, Mastercard, American Express…)
+
+Le décompte est périodique et le bénéficiaire paie une commission d'interchange.
+
+#### Teneur de carte (celui qui paie)
+
+| Étape | Écriture |
+|---|---|
+| Paiement par carte (20 mars) | Débit 440 (ou charge) / Crédit 5504 |
+| Réception du récapitulatif (5 avril) | Aucune écriture si déjà comptabilisé |
+| Extrait de compte (7 avril) | Débit 5504 / Crédit 5500 |
+
+#### Bénéficiaire (celui qui est payé)
+
+| Étape | Écriture |
+|---|---|
+| Vente payée par carte | Débit 5504 / Crédit 700 + Crédit 451054 |
+| Décompte : commission + TVA | Débit 61 (commission) + Débit 41159 (TVA) |
+| Extrait de compte | Débit 5500 / Crédit 5504 |
+
+### Application TVA dans le secteur bancaire
+
+Certains frais bancaires sont soumis à la TVA 21 % (récupérable par le commerçant) :
+- Location de coffre-fort
+- Cartes de débit *(pas les cartes de crédit)*
+- Frais de recherche, service devises, electronic banking…
+
+Les **intérêts** ne sont **pas** soumis à la TVA.
+
+---
+
+## 3. Les caisses (57)
+
+Les comptes **57…** enregistrent tout ce considéré comme monnaie dans les caisses : espèces en €, timbres, devises étrangères.
+
+Pièces justificatives : **pièces de caisse** (documents internes).
+
+> Le solde de ces comptes doit **toujours être positif (débiteur)**.
+
+---
+
+## 4. Les virements internes (58)
+
+Compte de **passage** utilisé pour comptabiliser des mouvements entre comptes financiers **lorsque les pièces justificatives (extraits) font défaut**.
+
+En fin de période, un solde résiduel est porté en augmentation ou diminution des valeurs disponibles au bilan.
+
+#### Exemple 1 — Transfert caisse → banque
+
+- 30/12 : sortie de caisse 500 €
+  - Débit 58 : 500 € / Crédit 57 : 500 €
+- 4/01 (extrait reçu) :
+  - Débit 550 : 500 € / Crédit 58 : 500 €
+
+#### Exemple 2 — Clôture d'un compte bancaire
+
+- 15/12 : clôture compte ING, virement vers CBC (2 768,32 €)
+  - Débit 58 : 2 768,32 € / Crédit 550 ING : 2 768,32 €
+- 18/12 : extrait CBC reçu
+  - Débit 550 CBC : 2 768,32 € / Crédit 58 : 2 768,32 €
+
+---
+
+## 5. Les différences de change
+
+Lorsqu'une entreprise belge commerce avec l'étranger **hors zone euro**, le taux de change peut varier entre la **date de livraison** et la **date de paiement**.
+
+| Type | Compte |
+|---|---|
+| **Perte de change** (charge financière) | 6540 |
+| **Gain de change** (produit financier) | 7540 |
+
+### Exemple 1 — Vente en USD
+
+Vente le 26/02/N : 50 000 USD à 1 USD = 0,70 € → Débit 400 : 35 000 € / Crédit 700 : 35 000 €
+
+Encaissement le 31/03/N :
+- **Hypothèse 1** : 1 USD = 0,65 € → montant reçu : 32 500 € → **perte de change 2 500 €**
+  - Débit 550 : 32 500 €, Débit 6540 : 2 500 € / Crédit 400 : 35 000 €
+- **Hypothèse 2** : 1 USD = 0,80 € → montant reçu : 40 000 € → **gain de change 5 000 €**
+  - Débit 550 : 40 000 € / Crédit 400 : 35 000 €, Crédit 7540 : 5 000 €
+
+### Exemple 2 — Achat en CHF
+
+Achat le 13/03/N : 60 500 CHF à 1 CHF = 0,80 € → Crédit 440 : 48 400 €
+*(Report de perception TVA 21 % → Débit 41159 / Crédit 451059)*
+
+Paiement le 13/04/N :
+- **Hypothèse 1** : 1 CHF = 0,78 € → montant payé : 47 190 € → **gain de change 1 210 €**
+  - Débit 440 : 48 400 € / Crédit 550 : 47 190 €, Crédit 7540 : 1 210 €
+- **Hypothèse 2** : 1 CHF = 0,83 € → montant payé : 50 215 € → **perte de change 1 815 €**
+  - Débit 440 : 48 400 €, Débit 6540 : 1 815 € / Crédit 550 : 50 215 €
+
+> ⚠️ Il n'y a **pas lieu de rectifier la TVA** lors des différences de change.
+
+---
+
+## 6. Le paiement en monnaie virtuelle (cryptomonnaie)
+
+Les **cryptomonnaies** (bitcoin, ethereum, ripple…) sont des représentations numériques de valeur, non émises par une banque centrale.
+
+Points clés selon la **CNC** :
+
+| Point | Position |
+|---|---|
+| Moyen de paiement légal en Belgique | ❌ Non reconnu |
+| Nature comptable | **Actifs circulants** — rubrique « autres créances » (valeur d'acquisition) |
+| Rubrique valeurs disponibles | ❌ Exclue (absence de lien bancaire + volatilité) |
+| Paiement/encaissement en crypto | Assimilé à des créances/dettes |
+
+> La CNC donne son avis **à titre temporaire** et souhaite une adaptation de la législation.
+
+---
+
+## 7. Les arrondissements des paiements en euro
+
+Depuis le **1ᵉʳ décembre 2019**, toutes les entreprises ont l'obligation d'arrondir les paiements **en espèces** au **multiple de 5 cents le plus proche** (sur le montant total).
+
+*Exemple : total 17,36 € → arrondi à 17,35 €*
+
+| Type de comptabilité | Traitement |
+|---|---|
+| **Simplifiée** | Montant arrondi inscrit directement dans le journal des recettes |
+| **En partie double** | Arrondi enregistré dans le sous-compte **709000 Arrondissement des paiements en euros** (sous-compte du 70) |
+
+L'arrondi négatif est enregistré au **débit** du compte 709000.

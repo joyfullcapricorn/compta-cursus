@@ -1,0 +1,379 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Introduction générale et droits d'enregistrement — Notions fondamentales
+coursId: droit-enregistrement
+chapitreNum: 1
+resume: Impôts directs/indirects, compétences fiscales des Régions, formalité d'enregistrement et tarifs proportionnels
+---
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+## I. Distinction impôts directs / indirects
+
+**Impôts directs** : prélèvement périodique sur une situation durable (revenus ou capital). Le contribuable est identifié sur un **rôle**. En Belgique : IPP, ISOC, IPM, INR.
+
+**Impôts indirects** : frappent des actes, opérations ou faits **ponctuels**. Ils ne visent pas directement la personne, mais l'acte lui-même.
+
+<ExcelViewer
+  title="Principaux impôts indirects en Belgique"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Impôts indirects",
+      rows: [
+        ["Impôt", "Objet", "Taux de base"],
+        ["TVA", "Consommation — livraisons de biens et prestations de services", "21% (réduits : 12%, 6%, 0%)"],
+        ["Droits de douane", "Importations au sein de l'UE — réglementation uniforme européenne", "Variable"],
+        ["Droits d'accises", "Fabrication/consommation de certains biens (carburants, tabac, alcools…)", "Variable"],
+        ["Droits d'enregistrement", "Circulation juridique de biens entre vifs (vente, donation, bail, apport…)", "Variable selon l'opération"],
+        ["Droits de succession", "Transmission de patrimoine pour cause de mort", "Variable selon le lien de parenté"],
+      ]
+    }]
+  }}
+/>
+
+---
+
+## II. Répartition des compétences fiscales en Belgique
+
+### Structure de l'État belge
+
+La Belgique est un **État fédéral** composé de :
+- l'**Autorité fédérale** (lois)
+- 3 **Communautés** (décrets) — matières liées aux personnes : enseignement, culture, santé
+- 3 **Régions** (décrets/ordonnances) — matières liées au territoire : environnement, logement, urbanisme
+
+**Principe de légalité de l'impôt** (art. 170 Const.) : *« No taxation without representation »* — tout impôt doit être établi par une loi, un décret ou une ordonnance selon le niveau de pouvoir concerné.
+
+**Principe d'égalité** (art. 172 Const.) : aucun privilège en matière d'impôts ; toute exemption doit être établie par une loi.
+
+### Compétences fiscales des Régions sur les droits d'enregistrement et de succession
+
+Les droits d'enregistrement et de succession sont des **impôts régionaux** (art. 3 de la Loi Spéciale de Financement du 16/01/1989 — LSF). Leur produit et les principales compétences normatives ont été transférés aux Régions.
+
+**Les Régions PEUVENT :**
+- Modifier le taux d'imposition
+- Modifier la base d'imposition
+- Accorder des exonérations et des remises
+
+**Les Régions NE PEUVENT PAS :**
+- Déterminer la matière imposable (elles ne peuvent pas supprimer un impôt régional, mais peuvent prévoir un taux de 0%)
+- Déterminer le fait générateur (= acte donnant naissance à la dette fiscale) → compétence fédérale
+
+Il existe donc **3 codes distincts** selon la région : Région wallonne, Région flamande, Région de Bruxelles-Capitale.
+
+### Critères de localisation des impôts régionaux
+
+<ExcelViewer
+  title="Critères de rattachement régional — Droits d'enregistrement et de succession"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Localisation",
+      rows: [
+        ["Opération", "Critère de localisation", "Base légale"],
+        ["Vente d'immeuble", "Situation du bien", "Art. 5, §2, 6° LSF"],
+        ["Échange", "Situation du bien (RC fédéral le plus élevé si plusieurs régions)", "Art. 5, §2, 6° LSF"],
+        ["Constitution d'hypothèque", "Situation du bien (RC fédéral le plus élevé si plusieurs régions)", "Art. 5, §2, 7° LSF"],
+        ["Partage", "Situation du bien", "Art. 5, §2, 7° LSF"],
+        ["Apport d'immeuble d'habitation (pers. physique → société belge)", "Situation du bien", "Art. 5, §2, 6° LSF"],
+        ["Donation par habitant du Royaume (pers. physique)", "Domicile fiscal du donateur au moment de la donation (ou le plus long des 5 dernières années)", "Art. 5, §2, 8° LSF"],
+        ["Donation par habitant du Royaume (pers. morale)", "Siège de direction effective du donateur (même règle des 5 ans)", "D.A."],
+        ["Donation d'immeuble belge par non-habitant", "Situation du bien", "Art. 5, §2, 8° LSF / D.A."],
+        ["Donation de meuble par non-habitant à un habitant", "Domicile fiscal / siège de direction effective du donataire", "D.A."],
+        ["Droits de succession", "Domicile fiscal du défunt au décès (ou le plus long des 5 ans précédant le décès)", "Art. 5, §2, 4° LSF"],
+      ]
+    }]
+  }}
+/>
+
+> **Domicile fiscal** d'une personne physique = endroit où elle a établi son habitation effective, réelle et permanente, sa famille, son centre d'activités → pas nécessairement le domicile légal.
+>
+> **Domicile fiscal** d'une personne morale = siège de direction effective, même si le siège statutaire est ailleurs.
+
+---
+
+## I. Les droits d'enregistrement — Notions
+
+### Définition (art. 1er CDE)
+
+L'enregistrement est une **formalité** consistant dans la copie, l'analyse ou la mention d'un acte par le receveur de l'enregistrement dans un registre. Cette formalité donne lieu à la perception d'un **impôt dénommé droit d'enregistrement**.
+
+**Caractéristiques :**
+- Impôt **réel** (frappe des faits déterminés, sans tenir compte de la situation du contribuable)
+- Impôt **indirect** (ponctuel, non récurrent)
+- Frappe la **circulation juridique de biens entre vifs** (≠ droits de succession = cause de mort)
+- Impôt **régionalisé** → critères de rattachement essentiels
+
+> Le contenu de l'enregistrement est **inaccessible au public** et les receveurs sont tenus au **secret absolu** (art. 236bis CDE), sauf échange avec d'autres administrations.
+
+### Finalités
+
+1. **Fiscale** : perception d'un impôt (le plus souvent proportionnel)
+2. **Administrative** : documentation immobilière, contrôle des officiers publics (notaires, huissiers)
+3. **Civile** : conférer aux actes sous seing privé une **date certaine opposable aux tiers** (art. 8.22 Nouveau Code civil) — utile notamment en matière de baux
+
+---
+
+## II. La formalité d'enregistrement
+
+### Caractère : facultatif ou obligatoire ?
+
+**Principe :** présentation **facultative** — tout acte ou écrit peut être présenté à l'enregistrement.
+
+**Exceptions — actes obligatoirement enregistrables** en raison de :
+
+- Leur **auteur** :
+  - Actes notariés passés en Belgique
+  - Exploits et PV d'huissiers de justice passés en Belgique
+  - Certaines décisions des cours et tribunaux
+
+- Leur **contenu** :
+  - Actes translatifs ou déclaratifs de propriété ou d'usufruit d'immeubles situés en Belgique
+  - Baux d'immeubles situés en Belgique *(enregistrement du bail à résidence principale = gratuit)*
+  - Apports de biens à des sociétés dotées de la personnalité juridique ayant leur siège en Belgique
+  - Donations de biens meubles par un habitant du Royaume devant notaire étranger
+
+### Personnes tenues de faire enregistrer
+
+L'obligation pèse de manière **indivisible** sur :
+- Les **parties contractantes**
+- Le **bailleur** pour les baux de logement
+- Les **greffiers** pour les arrêts et jugements
+- Les **notaires et huissiers** pour les actes de leur ministère → débiteurs directs et personnels de l'impôt (art. 35 CDE)
+
+### Délais d'enregistrement
+
+<ExcelViewer
+  title="Délais d'enregistrement selon la nature de l'acte"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Délais",
+      rows: [
+        ["Nature de l'acte", "Délai", "Base légale"],
+        ["Actes des notaires", "15 jours à compter de la date de l'acte", "Art. 32, 1° CDE"],
+        ["Actes des huissiers de justice", "4 jours à compter de la date de l'acte", "Art. 32, 2° CDE"],
+        ["Arrêts et jugements des cours et tribunaux", "10 jours à compter de la date", "Art. 32, 3° CDE"],
+        ["Actes translatifs/déclaratifs de propriété ou d'usufruit d'immeubles (compromis)", "4 mois à partir de la date de l'acte", "Art. 32, 4° CDE"],
+        ["Baux affectés au logement", "2 mois à partir de la date de l'acte", "Art. 32, 5° CDE"],
+        ["Autres baux (bail commercial, etc.)", "4 mois à partir de la date de l'acte", "Art. 32, 5° CDE"],
+        ["Apports de biens à des sociétés belges", "4 mois à partir de la date de l'acte", "Art. 32, 7° CDE"],
+        ["Donation de meubles par habitant du Royaume devant notaire étranger", "4 mois", "Art. 32, 8° CDE"],
+      ]
+    }]
+  }}
+/>
+
+> **Cas particulier — vente immobilière :** il peut y avoir un compromis (acte sous seing privé, délai 4 mois) puis un acte authentique (délai 15 jours). L'enregistrement de l'acte authentique avant l'expiration du délai de 4 mois éteint l'obligation d'enregistrer le compromis.
+
+### Modalités d'enregistrement
+
+- **Principe :** enregistrement après paiement des droits liquidés par le receveur (art. 169ter CDE)
+- **Enregistrement en débet** (art. 160 CDE) : enregistrement préalable au paiement (ex : jugements et arrêts)
+- **Enregistrement gratuit** (art. 161 CDE) : ex : baux de logement (art. 161, 12° CDE)
+
+---
+
+## III. Tarifs et base imposable
+
+### Les 3 catégories de droits (art. 10 et 11 CDE)
+
+<ExcelViewer
+  title="Catégories de droits d'enregistrement"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Catégories",
+      rows: [
+        ["Catégorie", "Principe", "Exemples"],
+        ["Droits proportionnels", "Calculés en % de la base imposable", "Droit de vente (3% ou 12,5%), bail (0,2%), hypothèque (1%), partage (1%), donations"],
+        ["Droits fixes spécifiques", "Montant forfaitaire prévu par le CDE", "Changement de prénom : 140 € — Mainlevée hypothécaire : 75 € — Nationalité belge : 1.000 €"],
+        ["Droit fixe général", "Applicable à tout acte non soumis à un autre droit", "50 € — « salaire de la formalité » (art. 167 CDE)"],
+      ]
+    }]
+  }}
+/>
+
+> **Règle :** le montant du droit proportionnel ne peut jamais être **inférieur** au droit fixe général de 50 € (art. 167 CDE).
+
+---
+
+## IV. Droits proportionnels — Les opérations principales
+
+### 1. Vente immobilière (art. 44 CDE)
+
+Seules les **mutations conventionnelles à titre onéreux** sont visées. Sont exclus : l'expropriation, l'accession, la prescription acquisitive, la renonciation unilatérale à un usufruit.
+
+**Base imposable :** prix + charges imposées à l'acheteur − charges supportées par le vendeur à décharge de l'acheteur.
+
+> **Plancher :** la valeur conventionnelle ne peut jamais être inférieure à la **valeur vénale** (art. 46 CDE) = valeur marchande susceptible d'être offerte par la généralité des amateurs dans des conditions normales. En cas de contestation, le receveur peut requérir une expertise (art. 189 CDE). Les parties peuvent contester le résultat dans le **délai d'un mois** suivant la signification du rapport (art. 199 CDE).
+
+<ExcelViewer
+  title="Taux du droit de vente immobilière par Région (2025)"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Taux de vente",
+      rows: [
+        ["", "Région wallonne", "Région de Bruxelles-Capitale", "Région flamande"],
+        ["Taux ordinaire", "12,5%", "12,5%", "12%"],
+        ["Taux réduit — habitation principale et unique", "3% (art. 44bis CDEW — depuis 01/01/2025)", "12,5% (pas de taux réduit)", "2% (art. 2.9.4.2.11 CFF — depuis 01/01/2025)"],
+      ]
+    }]
+  }}
+/>
+
+**Conditions du taux réduit à 3% en Région wallonne (art. 44bis CDEW) :**
+
+- Bien situé en **Région wallonne**
+- Acquéreurs = **personnes physiques** (pas les sociétés)
+- Bien **affecté ou destiné à l'habitation** (en tout ou en partie)
+- Acquisition portant sur la **totalité en pleine propriété**
+- **Interdiction de posséder** un autre immeuble d'habitation en pleine propriété à la date de l'acte (sauf engagement de céder dans les 3 ans)
+- **Établissement de la résidence principale dans les 3 ans** (5 ans pour terrain à bâtir/construction)
+- **Maintien de la résidence principale 3 ans** de manière ininterrompue
+- Mention expresse dans l'acte de la demande du taux réduit
+
+> **NB :** Le taux de 3% remplace les anciens abattements (40.000 € en Wallonie) et le chèque-habitat. En cas de non-respect des conditions → droits complémentaires + intérêts légaux (sauf force majeure ou raison impérieuse familiale, médicale, professionnelle ou sociale).
+
+> **Bâtiment neuf :** application de la **TVA** et non des droits d'enregistrement (art. 159, 8° CDE). Un bâtiment est neuf jusqu'au 31/12 de la 2e année suivant la 1re occupation, ou s'il a fait l'objet d'une rénovation radicale (coût des travaux HTVA ≥ 60% de la valeur vénale après travaux).
+
+**Exemple (Wallonie) :**
+- Habitation principale et unique à 300.000 € → 300.000 × 3% = **9.000 €**
+- Résidence secondaire à 300.000 € → 300.000 × 12,5% = **37.500 €**
+
+---
+
+### 2. Baux, emphytéose et superficie (art. 83-84 CDE)
+
+<ExcelViewer
+  title="Droits d'enregistrement sur les baux et droits réels démembrés"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Baux",
+      rows: [
+        ["Opération", "Taux", "Base imposable"],
+        ["Bail, sous-bail, cession de bail (hors logement)", "0,2%", "Montant cumulé des loyers et charges pour toute la durée du bail"],
+        ["Bail à résidence principale", "Gratuit (art. 161, 12° CDEW)", "—"],
+        ["Constitution ou cession d'emphytéose ou de superficie", "5% (depuis 01/01/2024, ancien taux : 2%)", "Montant cumulé des loyers/redevances et charges pour toute la durée"],
+      ]
+    }]
+  }}
+/>
+
+> **Emphytéose** = droit réel d'usage et de jouissance d'un immeuble appartenant à autrui, durée 15 à 99 ans, à titre onéreux ou gratuit.
+> **Superficie** = droit réel conférant la propriété de volumes bâtis ou non sur le fonds d'autrui, durée max. 99 ans.
+
+---
+
+### 3. Constitution d'hypothèque (art. 87 à 93 CDE)
+
+Taux : **1%** sur les sommes garanties par l'hypothèque.
+
+L'inscription hypothécaire est toujours prise pour **30 ans** (art. 90 loi hypothécaire), quelle que soit la durée du prêt.
+
+> Mainlevée totale ou partielle d'une inscription hypothécaire → droit fixe spécifique de **75 €** (art. 103 CDE).
+
+---
+
+### 4. Partage de biens immeubles (art. 109 à 114 CDE)
+
+S'applique lorsque plusieurs personnes possèdent des droits de même nature sur une même chose (**indivision**) — peu importe l'origine : succession, communauté conjugale, acquisition en commun.
+
+Taux : **1%**
+- Sur la valeur totale des biens si l'indivision cesse
+- Sur la quotité cédée si l'indivision subsiste
+
+**Base minimale :** valeur vénale (art. 111 CDE).
+
+> La cession de droits indivis à **titre gratuit** entre coïndivisaires → droit de **donation** (art. 131 CDE).
+>
+> **NB :** Le gouvernement wallon envisage de porter le taux à 3% (sauf divorce ou fin de cohabitation légale).
+
+---
+
+### 5. Apports de biens à des sociétés belges (art. 115 et s. CDE)
+
+**Principe :** taux de **0%**.
+
+**Exception :** apport d'un immeuble **affecté ou destiné à l'habitation** par une **personne physique** → droit de vente applicable (taux ordinaire de l'art. 44 CDE).
+
+> **Apport mixte :** si l'apporteur reçoit de l'argent en plus des actions → la partie non rémunérée en droits sociaux est traitée comme une **vente** et soumise au droit proportionnel de l'art. 44 CDE.
+
+---
+
+### 6. Donations (art. 131 et s. CDE)
+
+#### Donations mobilières
+
+<ExcelViewer
+  title="Taux des droits de donation mobilière par Région"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Donations mobilières",
+      rows: [
+        ["Lien de parenté", "Région wallonne", "Région de Bruxelles-Capitale", "Région flamande"],
+        ["Ligne directe, époux, cohabitants légaux", "3,3% (art. 131bis CDEW)", "3% (art. 131, §2 CDEBx)", "3% (art. 2.8.4.1.1, §2 CFF)"],
+        ["Frères/sœurs, oncles/tantes, neveux/nièces", "5,5% (art. 131bis CDEW)", "7% (art. 131, §2 CDEBx)", "7% (art. 2.8.4.1.1, §2 CFF)"],
+        ["Toutes autres personnes", "5,5% (art. 131bis CDEW)", "7% (art. 131, §2 CDEBx)", "7% (art. 2.8.4.1.1, §2 CFF)"],
+      ]
+    }]
+  }}
+/>
+
+> **Attention :** La donation mobilière n'est **pas obligatoirement enregistrable** si elle n'est pas passée devant notaire belge. Mais si elle n'est pas enregistrée et que le donateur décède **dans les 5 ans**, les biens donnés sont réintégrés dans l'actif successoral et taxés au taux progressif (art. 7 Code des droits de succession). Les donations enregistrées aux taux de 3,3% ou 5,5% **n'ont aucun impact** sur le calcul des droits de succession, quel que soit le délai.
+
+#### Donations immobilières en Wallonie (art. 131 CDEW — taux actuels / futurs à partir du 01/01/2028)
+
+<ExcelViewer
+  title="Taux de donation immobilière en Région wallonne"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Ligne directe / époux / cohabitants",
+      rows: [
+        ["Tranche", "Taux actuel", "Taux futur (01/01/2028)"],
+        ["De 0,01 € à 150.000 €", "3%", "3%"],
+        ["De 150.000 € à 250.000 €", "9%", "6%"],
+        ["De 250.000 € à 450.000 €", "18%", "10%"],
+        ["Au-delà de 450.000 €", "27%", "14%"],
+      ]
+    }, {
+      name: "Toutes autres personnes",
+      rows: [
+        ["Tranche", "Taux actuel", "Taux futur (01/01/2028)"],
+        ["De 0,01 € à 150.000 €", "10%", "9%"],
+        ["De 150.000 € à 250.000 €", "20%", "12%"],
+        ["De 250.000 € à 450.000 €", "30%", "16%"],
+        ["Au-delà de 450.000 €", "40%", "20%"],
+      ]
+    }]
+  }}
+/>
+
+> **Réserve de progressivité (art. 137 CDE) :** la base imposable d'une donation immobilière est **majorée** des donations immobilières antérieures entre les mêmes parties au cours des **3 dernières années**.
+
+#### Dispositions particulières (Région wallonne)
+
+<ExcelViewer
+  title="Dispositions particulières — Donations en Région wallonne"
+  type="inline"
+  data={{
+    sheets: [{
+      name: "Dispositions",
+      rows: [
+        ["Article", "Objet"],
+        ["131quater CDE", "Exemption pour certains biens forestiers (Code forestier wallon)"],
+        ["131quinquies CDE", "Exemption pour biens dans un périmètre Natura 2000"],
+        ["131septies CDE", "Réduction pour terrains sous bail à ferme de longue durée ou de carrière"],
+        ["140 CDE", "Taux spéciaux : 7% pour ASBL/fondations — 5,5% pour provinces/communes — 0% pour Région wallonne, Communauté française, Autorité fédérale"],
+        ["140bis CDE", "Donation d'entreprise : 0% sous conditions (activité maintenue 5 ans, 75% des emplois conservés, avoirs non diminués)"],
+        ["141 CDE (pas encore en vigueur)", "Saut générationnel : 0% pour donations effectuées directement à la suite d'une succession"],
+        ["211 CDE", "Restitution de 25% des droits (max. 2.500 €) si travaux économiseurs d'énergie après donation immobilière"],
+      ]
+    }]
+  }}
+/>

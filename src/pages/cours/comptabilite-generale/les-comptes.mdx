@@ -1,0 +1,168 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Les comptes
+coursId: comptabilite-generale
+chapitreNum: 4
+chapitreId: cg-comptes
+resume: Notion de compte, fonctionnement débit/crédit, comptes de bilan et de résultats, plan comptable minimum normalisé (PCMN).
+---
+
+## 1. Notion de compte
+
+Le **compte** est un tableau reprenant les flux enregistrés par l'entreprise au cours d'une période donnée. Il comporte :
+- Le nom du compte et son numéro dans le plan comptable
+- La période (mois), la date
+- Les mouvements au **débit** (gauche) et au **crédit** (droit)
+- Le libellé et la référence à la pièce justificative
+
+Représentation schématique (la « **potence** ») :
+
+```
+Débit    [N° compte]  [Intitulé du compte]    Crédit
+         ───────────────────────────────────
+```
+
+### Vocabulaire essentiel
+
+| Terme | Définition |
+|---|---|
+| **Débiter** un compte | Inscrire une somme du côté gauche |
+| **Créditer** un compte | Inscrire une somme du côté droit |
+| **Solder / arrêter** un compte | Dégager le solde en fin de période et l'inscrire du côté le plus faible |
+| **Solde débiteur** | Total Débit > Total Crédit |
+| **Solde créditeur** | Total Débit < Total Crédit |
+| **Solde nul** | Total Débit = Total Crédit |
+| **Ouvrir** un compte | Attribuer un nom et y inscrire le solde initial ou une première opération |
+| **Imputer** un compte | Choisir un compte et y inscrire une opération au débit ou au crédit sur base d'une pièce justificative |
+
+---
+
+## 2. Procédé
+
+1. En début d'activité : établissement du **bilan initial** → chaque poste du bilan devient un ou plusieurs comptes
+2. En cours d'exercice : les opérations sont enregistrées dans les comptes
+3. En fin d'exercice : on établit le **solde de chaque compte** et on reporte les soldes dans le bilan final
+
+> **Règle fondamentale** : le point de départ d'une opération (origine) est toujours un **crédit** ; son point d'arrivée (destination) est toujours un **débit**.
+
+---
+
+## 3. Les comptes de bilan
+
+### Règle de fonctionnement
+
+| COMPTE D'ACTIF | COMPTE DE PASSIF |
+|---|---|
+| **Débit** : valeur initiale + augmentations | **Crédit** : valeur initiale + augmentations |
+| **Crédit** : diminutions | **Débit** : diminutions |
+| Solde normalement **débiteur** | Solde normalement **créditeur** |
+
+### Principe de partie double
+
+> Si on débite un compte, il faut **créditer** un ou plusieurs autres comptes en contrepartie, et vice versa, de telle sorte que le **total des débits = total des crédits**.
+
+### Exemples
+
+**Exemple 1** : Un client paie une facture de 890,00 € en espèces.
+- Débit 570 Caisse : 890,00 €
+- Crédit 400 Clients : 890,00 €
+
+**Exemple 2** : Achat d'une machine à crédit : 2 540,50 €.
+- Débit 230 Installations, machines et outillage : 2 540,50 €
+- Crédit 440 Fournisseurs : 2 540,50 €
+
+---
+
+## 4. Les comptes de résultats
+
+### Règle de fonctionnement
+
+| COMPTE DE CHARGE | COMPTE DE PRODUIT |
+|---|---|
+| **Débit** : augmentations | **Crédit** : augmentations |
+| **Crédit** : diminutions | **Débit** : diminutions |
+| Débité par le crédit d'un compte de bilan | Crédité par le débit d'un compte de bilan |
+
+### Résultat
+
+| Condition | Résultat |
+|---|---|
+| Total Produits > Total Charges | **Bénéfice** |
+| Total Produits < Total Charges | **Perte** |
+
+> Depuis le **1ᵉʳ janvier 2016**, les charges et produits exceptionnels deviennent des charges et produits **non récurrents** (d'exploitation ou financiers). Le résultat courant avant impôts a disparu des schémas.
+
+---
+
+## 5. Le plan comptable minimum normalisé (PCMN)
+
+Le **PCMN** (version initiale 1983, refondu par l'AR du 29/04/2019) définit l'organisation générale de la comptabilité. Il s'agit d'un **minimum** : les entreprises peuvent créer des sous-comptes et adapter les libellés.
+
+### Classification décimale
+
+| Niveau | Description | Exemple |
+|---|---|---|
+| **Classe** (1 chiffre) | 10 classes : 0 à 9 | Classe 2 = Actifs immobilisés |
+| **Rubrique** (2 chiffres) | 10 rubriques par classe | 24 = Mobilier et matériel roulant |
+| **Compte principal** (3 chiffres) | 10 sous-rubriques | 241 = compte principal 1 du mobilier |
+| **Compte** (4 chiffres) | Subdivision des comptes principaux | |
+| **Sous-compte** (5+ chiffres) | Subdivision encore plus fine | |
+
+### Contenu des classes
+
+#### Comptes de bilan (classes 1 à 5)
+
+| Classe | Contenu | Côté bilan |
+|---|---|---|
+| **1** | Fonds propres, provisions, dettes à + d'un an | Passif |
+| **2** | Actifs immobilisés et créances à + d'un an | Actif |
+| **3** | Stocks et commandes en cours d'exécution | Actif |
+| **4** | Créances et dettes à 1 an au plus | Actif et Passif |
+| **5** | Placements de trésorerie et valeurs disponibles | Actif |
+
+#### Comptes de gestion / résultats (classes 6 et 7)
+
+| Comptes | Nature | Impact |
+|---|---|---|
+| **60 à 64** | Charges d'exploitation | → Résultat d'exploitation |
+| **70 à 74** | Produits d'exploitation | → Résultat d'exploitation |
+| **65** | Charges financières | → Résultat financier |
+| **75** | Produits financiers | → Résultat financier |
+| **66** | Charges non récurrentes | → Résultat d'exploit. et/ou financier |
+| **76** | Produits non récurrents | → Résultat d'exploit. et/ou financier |
+| **67/77** | Impôts sur le résultat | |
+| **68/78** | Transferts impôts différés | |
+| **69** | Affectations (en cas de bénéfice) | |
+| **79** | Prélèvements (en cas de perte) | |
+
+#### Comptes spéciaux et analytiques
+
+| Classe | Usage |
+|---|---|
+| **0** | Droits et engagements hors bilan (très important pour les annexes) |
+| **8 et 9** | Libres — destinés à la comptabilité analytique / industrielle |
+
+### Structure du compte de résultats
+
+```
+70/74   Produits d'exploitation
+60/64 - Charges d'exploitation
+76A   + Produits d'exploitation non récurrents
+66A   - Charges d'exploitation non récurrentes
+      = Bénéfice ou perte d'exploitation
+
+75    + Produits financiers
+65    - Charges financières
+76B   + Produits financiers non récurrents
+66B   - Charges financières non récurrentes
+      = Bénéfice ou perte de l'exercice avant impôts
+
+780   + Prélèvement sur les impôts différés
+680   - Transfert aux impôts différés
+67/77 +/- Impôts sur le résultat
+      = Bénéfice ou perte de l'exercice
+
+789   + Prélèvement sur réserves immunisées
+689   - Transfert aux réserves immunisées
+      = Bénéfice ou perte de l'exercice à affecter
+```

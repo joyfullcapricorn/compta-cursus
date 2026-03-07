@@ -1,0 +1,153 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Le bilan
+coursId: comptabilite-generale
+chapitreNum: 2
+chapitreId: cg-bilan
+resume: Notion de patrimoine, structure de l'actif et du passif, schéma légal du bilan belge.
+---
+
+## 1. Notion de patrimoine
+
+Juridiquement, le patrimoine est l'ensemble des **avoirs et dettes** d'une personne, de ses droits et engagements. Toute personne physique ou morale possède un patrimoine.
+
+En comptabilité, on distingue :
+
+| Type d'entreprise | Patrimoine comptable |
+|---|---|
+| **Entreprise sociétaire** | Un seul patrimoine : celui constitué par les associés pour la société |
+| **Entreprise individuelle** | Deux patrimoines : le patrimonine professionnel (seul pris en compte) et le patrimoine privé du propriétaire |
+
+> **Principe de personnification comptable** : quelle que soit sa forme juridique, l'entreprise forme une entité distincte de la personne de son ou ses propriétaires.
+
+⚠️ Sur le plan juridique, l'entrepreneur individuel reste responsable de ses engagements sur ses biens privés — les deux patrimoines se confondent en cas de faillite ou de recours des tiers.
+
+---
+
+## 2. Le bilan
+
+Le bilan représente la **synthèse du patrimoine de l'entreprise à un moment donné**. Il se divise en deux parties :
+
+| Côté | Contenu |
+|---|---|
+| **Actif** | Avoirs de l'entreprise — *emplois* des ressources financières |
+| **Passif** | Dettes de l'entreprise — *origine* des capitaux qui ont financé les avoirs |
+
+### Principes fondamentaux du bilan
+
+1. Le bilan est une **photo du patrimoine** à une date donnée → il doit être **daté**
+2. Il y a toujours **égalité entre l'actif et le passif** : Total Actif = Total Passif
+3. Le bilan doit mentionner l'**unité monétaire** utilisée (en Belgique : l'Euro)
+
+---
+
+## 3. Structure du bilan
+
+### 3.1. Structure de l'actif
+
+Les avoirs sont présentés par **degré croissant de liquidité** (aptitude à se transformer en numéraire).
+
+#### Actifs fixes (immobilisations)
+Moyens d'action conservés de manière **durable** pour assurer le fonctionnement normal de l'exploitation.
+
+*Exemples : terrains, constructions, mobilier, machines, brevets, licences, matériel roulant…*
+
+#### Actifs circulants
+Moyens d'action destinés à se transformer **régulièrement en liquidités** selon le cycle d'exploitation :
+
+```
+MARCHANDISES → CRÉANCES SUR CLIENTS → LIQUIDITÉS → PLACEMENTS DE TRÉSORERIE → (retour)
+```
+
+Subdivisions des actifs circulants :
+
+| Catégorie | Contenu |
+|---|---|
+| **Liquidités / valeurs disponibles** | Espèces en caisse, avoirs en banque, timbres |
+| **Valeurs réalisables** | Stocks, créances commerciales, placements de trésorerie à court terme (< 1 an) |
+
+### 3.2. Structure du passif
+
+Les éléments du passif sont classés par **degré croissant d'exigibilité** (délai de remboursement).
+
+#### Point de vue comptable
+
+| Catégorie | Contenu |
+|---|---|
+| **Capitaux propres** | Apport du ou des propriétaires + bénéfices conservés (réserves, bénéfice reporté) + subsides en capital |
+| **Provisions et impôts différés** | Bénéfices réservés pour dépenses futures prévisibles (assimilés aux capitaux propres du point de vue financier) |
+| **Capitaux étrangers** | Dettes vis-à-vis des tiers, exigibles à des délais négociés ou imposés |
+
+#### Point de vue financier
+
+| Catégorie | Contenu |
+|---|---|
+| **Capitaux permanents** | Capitaux propres + provisions et impôts différés + dettes à long terme (> 1 an) |
+| **Capitaux provisoires** | Dettes remboursables à court terme (≤ 1 an) |
+
+### Tableau récapitulatif
+
+| ACTIF | PASSIF |
+|---|---|
+| Frais d'établissement | **Capitaux propres** : apport, plus-values, réserves, bénéfice reporté, subsides |
+| **Actifs immobilisés** : incorporels, corporels, financiers | **Provisions et impôts différés** |
+| **Actifs circulants** : créances > 1 an, stocks, créances ≤ 1 an, placements de trésorerie, valeurs disponibles, comptes de régularisation | **Dettes** : à + d'un an, à 1 an au plus, comptes de régularisation |
+
+---
+
+## 4. Schéma légal du bilan
+
+La loi comptable impose un **schéma du bilan** en fonction de la taille et de la forme juridique de l'entreprise :
+
+| Schéma | Pour qui |
+|---|---|
+| **Micro** | Micro-entreprises (critères réduits) |
+| **Abrégé** | Petites entreprises (option) |
+| **Complet** | Grandes entreprises (obligatoire) |
+
+Depuis le CSA du 23/03/2019, on distingue également :
+- **Sociétés à capital** (ex. SA) → schéma C-cap
+- **Sociétés sans capital** (ex. SRL, Société Coopérative) → schéma C-app
+
+### Codes du plan comptable dans le bilan
+
+**ACTIF** :
+
+| Rubrique | Code PCMN |
+|---|---|
+| Frais d'établissement | 20 |
+| Actifs immobilisés (total) | 21/28 |
+| — Immobilisations incorporelles | 21 |
+| — Immobilisations corporelles | 22/27 |
+| — Immobilisations financières | 28 |
+| Actifs circulants (total) | 29/58 |
+| — Créances à + d'un an | 29 |
+| — Stocks et commandes en cours | 3 |
+| — Créances à 1 an au plus | 40/41 |
+| — Placements de trésorerie | 50/53 |
+| — Valeurs disponibles | 54/58 |
+| — Comptes de régularisation | 490/1 |
+
+**PASSIF** :
+
+| Rubrique | Code PCMN |
+|---|---|
+| Capitaux propres (total) | 10/15 |
+| — Apport (capital) | 10/11 |
+| — Plus-values de réévaluation | 12 |
+| — Réserves | 13 |
+| — Bénéfice (Perte) reporté(e) | 14 |
+| — Subsides en capital | 15 |
+| Provisions et impôts différés | 16 |
+| Dettes (total) | 17/49 |
+| — Dettes à + d'un an | 17 |
+| — Dettes à 1 an au plus | 42/48 |
+| — Comptes de régularisation | 492/3 |
+
+> **Ann** = annexe : la loi prévoit des explications détaillées de certaines rubriques fournies dans les pages annexes des comptes annuels.
+
+### Différence SA vs SRL / Société Coopérative
+
+Pour la **SRL et la Société Coopérative** (sociétés sans capital à apport libre) :
+- L'**actif est identique** à celui de la SA
+- Dans le **passif**, la composition des capitaux propres diffère légèrement : l'apport est subdivisé en **Disponible** (110) et **Indisponible** (111)

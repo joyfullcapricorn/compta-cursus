@@ -1,0 +1,221 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Les opérations commerciales
+coursId: comptabilite-generale
+chapitreNum: 6
+chapitreId: cg-operations-commerciales
+resume: Pièces justificatives, opérations d'achat et de vente — réductions commerciales et financières, emballages, notes de débit et de crédit.
+---
+
+## 1. Les pièces justificatives
+
+### Structure d'une facture
+
+```
+PRIX BRUT de la marchandise
+- Réductions commerciales (remises, rabais, ristournes)
+= PRIX NET
++ Frais de transport, assurances, emballages non repris
+= PRIX NET FRAIS COMPRIS
+- Escompte ferme (réduction financière)
+= BASE IMPOSABLE
++ TVA
++ Emballages repris
++ Escompte conditionnel
+= MONTANT TOTAL À PAYER
+```
+
+### Notes de débit et de crédit
+
+| Document | Sens | Usage |
+|---|---|---|
+| **Note de débit** | Facture complémentaire (↑ dette du client) | Frais d'entrepôt, intérêts de retard, rectification d'erreur en défaveur du fournisseur |
+| **Note de crédit** | Rectification négative (↓ dette du client) | Retour de marchandises, retour d'emballages repris, rabais/remise/ristourne supplémentaire, erreur en défaveur du client |
+
+---
+
+## 2. Les opérations d'achat
+
+### Comptes utilisés
+
+| Débit | Crédit |
+|---|---|
+| 60.. Achat de… | 440 Fournisseurs |
+| 41159 TVA à récupérer | |
+
+### Les réductions commerciales
+
+| Type | Motif |
+|---|---|
+| **Remise** | Achat en grandes quantités |
+| **Rabais** | Marchandises abîmées, démodées ou de moins bonne qualité |
+| **Ristourne** | Fidélité sur une période ou un ensemble de contrats |
+
+**Si la réduction figure sur la facture** → on l'intègre directement au prix net, pas d'écriture spéciale.
+
+**Si la réduction est accordée après la facture** (note de crédit) → compte **608 Remises, ristournes et rabais obtenus**.
+
+#### Exemple — Achat avec remise sur facture
+
+Facture fournisseur DUPONT n°45 : prix brut 10 000 €, remise 10 %, TVA 21 %
+
+| Calcul | Montant |
+|---|---|
+| Prix brut | 10 000,00 € |
+| - Remise 10 % | - 1 000,00 € |
+| Prix net (base TVA) | 9 000,00 € |
+| + TVA 21 % | + 1 890,00 € |
+| **Total à payer** | **10 890,00 €** |
+
+Écriture :
+- Débit 604 : 9 000,00 €
+- Débit 41159 : 1 890,00 €
+- Crédit 440 : 10 890,00 €
+
+#### Exemple — Remise accordée après la facture (note de crédit)
+
+Note de crédit : remise 10 % sur facture initiale de 10 000 € HT, TVA 21 %
+
+Écriture :
+- Débit 440 : 1 210,00 €
+- Crédit 451063 TVA à payer sur NC : 210,00 €
+- Crédit 608 : 1 000,00 €
+
+### Les réductions financières (escompte)
+
+L'escompte est un **produit financier** → compte **756 Escomptes obtenus**.
+
+#### Escompte ferme — accordé sur la facture
+
+Facture DUPUIS n°78 : 3 200 €, TVA 21 %, escompte ferme 2 %
+
+| Calcul | Montant |
+|---|---|
+| Prix brut | 3 200,00 € |
+| - Escompte 2 % | - 64,00 € |
+| Base TVA | 3 136,00 € |
+| + TVA 21 % | + 658,56 € |
+| **Total à payer** | **3 794,56 €** |
+
+Écriture :
+- Débit 604 : 3 200,00 €
+- Débit 41159 : 659,56 €
+- Crédit 440 : 3 794,56 €
+- Crédit 756 Escompte : 64,00 €
+
+#### Escompte conditionnel — paiement dans un délai fixé
+
+La base imposable TVA est calculée **déduction faite de l'escompte** mais l'escompte n'est pas retranché sur la facture.
+
+Écriture à la réception de la facture :
+- Débit 604 : montant HT
+- Débit 41159 : TVA calculée sur base imposable réduite
+- Crédit 440 : total à payer
+
+**Si paiement dans le délai** → 440 Fournisseurs / à 550 Banque + à 756 Escompte obtenu
+
+**Si paiement hors délai** → 440 Fournisseurs / à 550 Banque (montant total sans déduire l'escompte)
+
+### Les emballages repris (consignés)
+
+Emballages réutilisables (bouteilles, tonneaux, palettes…) — **non soumis à la TVA** et **hors base imposable**.
+
+Compte dédié : **405 Emballages repris sur achats**
+
+#### Hypothèses de retour
+
+| Situation | Écriture |
+|---|---|
+| **Retour total** | 440 / à 405 |
+| **Retour partiel** (ex. 15 € sur 20 €) | 440 + 411059 TVA + 646 Perte sur emballage / à 405 |
+| **Aucun retour** | 646 Perte sur emballage + 411059 TVA / à 440 + à 405 |
+
+---
+
+## 3. Les opérations de vente
+
+### Comptes utilisés
+
+| Débit | Crédit |
+|---|---|
+| 400 Clients | 70… Ventes (7001 TVA 6 %, 7002 TVA 12 %, 7003 TVA 21 %) |
+| | 451054 TVA à payer |
+
+### Les réductions commerciales
+
+**Sur la facture** → intégrées directement au prix net.
+
+#### Exemple — Vente avec ristourne
+
+Facture n°67 client FABRY : prix brut 2 600 €, ristourne 5 %, TVA 6 %
+
+| Calcul | Montant |
+|---|---|
+| Prix brut | 2 600,00 € |
+| - Ristourne 5 % | - 130,00 € |
+| Prix net (base TVA) | 2 470,00 € |
+| + TVA 6 % | + 148,20 € |
+| **Total à payer** | **2 618,20 €** |
+
+Écriture :
+- Débit 400 : 2 618,20 €
+- Crédit 7001 : 2 470,00 €
+- Crédit 451054 : 148,20 €
+
+### Les réductions financières (escompte)
+
+L'escompte accordé est une **charge financière** → compte **657 Escomptes accordés**.
+
+#### Escompte ferme — Exemple
+
+Facture n°94 client PETERS : 1 200 €, remise 5 %, escompte ferme 2 %, TVA 21 %
+
+| Calcul | Montant |
+|---|---|
+| Prix brut | 1 200,00 € |
+| - Remise 5 % | - 60,00 € |
+| Prix net | 1 140,00 € |
+| - Escompte 2 % | - 22,80 € |
+| Base TVA | 1 117,20 € |
+| + TVA 21 % | + 234,61 € |
+| **Total à payer** | **1 351,81 €** |
+
+Écriture :
+- Débit 400 : 1 351,81 €
+- Débit 657 Escompte : 22,80 €
+- Crédit 451054 : 234,51 €
+- Crédit 7003 : 1 140,00 €
+
+#### Escompte conditionnel
+
+Écriture à la facturation :
+- Débit 400 : total facturé (sans déduire l'escompte)
+- Crédit 7003 : prix net HT
+- Crédit 451064 TVA à payer (conditionnel) : TVA calculée sur base réduite
+
+**Si paiement dans le délai** → 550 + 657 Escompte / à 400
+
+**Si paiement hors délai** → 550 / à 400
+
+### Les emballages consignés (ventes)
+
+Compte dédié : **445 Emballages repris sur ventes**
+
+#### Hypothèses de retour client
+
+| Situation | Écriture principale |
+|---|---|
+| **Retour total** | 445 / à 400 |
+| **Retour partiel** (ex. 30 € sur 40 €) | 445 + à 7481 Vente d'emballage (10 €) + à 451054 TVA (2,10 €) + à 400 |
+| **Aucun retour** | 445 + à 7484 Vente sur emballage + à 451054 TVA |
+
+### Rectifications de la facture — exemples
+
+**Note de débit** (intérêts de retard de 20,80 €) :
+- Débit 400 : 20,80 €
+- Crédit 758 Intérêts de retard : 20,80 €
+
+**Note de crédit** (remise 10 % sur facture précédente — 180 € HT, TVA 21 %) :
+- Débit 708 : 180,00 €
+- Débit 411063 TVA à récupérer sur NC : 37,80 €
+- Crédit 400 : 217,80 €
