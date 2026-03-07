@@ -45,11 +45,11 @@ const currentSlug = Astro.url.pathname;
     <!-- Main content -->
     <main class="content-area">
       <nav class="content-breadcrumb">
-        <a href="/">Accueil</a>
+        <a href="/" class="crumb">Accueil</a>
         <span class="sep">/</span>
-        <a href={`/cours/${frontmatter.coursId}`}>{cours?.titre}</a>
+        <a href={`/cours/${frontmatter.coursId}`} class="crumb crumb--truncate">{cours?.titre}</a>
         <span class="sep">/</span>
-        <span>{frontmatter.titre}</span>
+        <span class="crumb crumb--truncate crumb--current">{frontmatter.titre}</span>
       </nav>
 
       <div class="chapter-header">
@@ -63,13 +63,13 @@ const currentSlug = Astro.url.pathname;
 
       <!-- In-page search -->
       <div style="margin-bottom:32px;position:relative" id="chapter-search-wrapper">
-        <span class="search-icon" style="font-size:0.85rem">🔍</span>
+        <span class="search-icon">🔍</span>
         <input
           type="text"
           class="search-bar"
           id="chapter-search"
           placeholder="Rechercher dans ce chapitre…"
-          style="font-size:0.875rem;padding:10px 38px 10px 40px"
+          style="font-size:0.875rem;padding:10px 38px 10px 36px"
           autocomplete="off"
         />
         <button class="search-clear" id="chapter-search-clear">✕</button>
@@ -116,6 +116,62 @@ const currentSlug = Astro.url.pathname;
   .nav-btn:hover {
     border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
     box-shadow: var(--shadow-sm);
+  }
+
+  /* Search icon — perfectly centered vertically */
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.82rem;
+    line-height: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    /* offset to account for search-results-count below */
+    margin-top: -12px;
+  }
+
+  /* Breadcrumb */
+  .content-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    min-width: 0;
+  }
+
+  .crumb {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 150ms;
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 180px;
+  }
+
+  .crumb:hover { color: var(--accent); }
+
+  .crumb--current {
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: default;
+    max-width: 240px;
+  }
+
+  .content-breadcrumb .sep {
+    flex-shrink: 0;
+    margin: 0 4px;
+    color: var(--text-muted);
+    opacity: 0.5;
   }
 </style>
 

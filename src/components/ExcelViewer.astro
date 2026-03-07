@@ -14,7 +14,7 @@ const { title, description, file, type = file ? 'static' : 'upload', data } = As
 const widgetId = `excel-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<div class="excel-widget" id={widgetId}>
+<div class="excel-widget" id={widgetId} style="max-width:100%;overflow:hidden">
   <div class="excel-widget__header">
     <div class="excel-widget__title">
       <div class="excel-widget__icon">XLS</div>
@@ -130,7 +130,7 @@ const widgetId = `excel-${Math.random().toString(36).slice(2, 8)}`;
     const isNumeric = (v) => v !== '' && !isNaN(parseFloat(String(v).replace(/\s/g,'').replace(',','.')));
 
     container.innerHTML = `
-      <div class="excel-table-wrapper" style="max-height:420px;overflow-y:auto">
+      <div class="excel-table-wrapper" style="max-height:420px;overflow-y:auto;overflow-x:auto;max-width:100%">
         <table class="excel-table">
           <thead>
             <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
