@@ -1,0 +1,195 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Gestion des ventes
+coursId: gestion-budgetaire
+chapitreNum: 2
+resume: Prévision des ventes (coefficients saisonniers, charges fixes/variables), budgétisation des ventes et frais commerciaux, contrôle budgétaire (écarts sur quantités, prix et marges).
+---
+
+## V. Gestion des ventes
+
+Le **budget des ventes** est le **premier budget** de la construction budgétaire, car il conditionne l'activité de tous les autres centres de responsabilité.
+
+Il doit être :
+- suffisamment **ambitieux** pour exploiter le potentiel de clientèle et motiver les vendeurs ;
+- **compatible avec l'état du marché**, c'est-à-dire réalisable.
+
+**Objectif** : chiffrer en volume l'activité prévisionnelle des services commerciaux afin d'estimer les ressources tirées des ventes et les dépenses liées à la mise sur le marché.
+
+---
+
+## 1. Prévision des ventes
+
+### a) La prévision des ventes
+
+La prévision des ventes est une **projection à court terme** (horizon d'un an) qui détermine les *quantités* à vendre et le *prix* à fixer, en tenant compte des contraintes de l'entreprise.
+
+Elle repose sur deux types d'analyses :
+
+| Type | Méthode | Base |
+|---|---|---|
+| **Qualitative** | Études de marché, sondages, marché test, politique de distribution | Informations actuelles |
+| **Quantitative** | Outils mathématiques et statistiques (extrapolation de tendances) | Informations passées |
+
+### Les coefficients saisonniers
+
+Les ventes se répartissent rarement de façon uniforme sur l'année : elles sont soumises à des **variations saisonnières** propres au produit ou service (ex : manteaux en hiver, crème solaire en été…).
+
+Dans sa forme la plus simple, le **coefficient saisonnier** rapporte les ventes moyennes d'un mois aux ventes moyennes de l'année (calculé sur 2 ou 3 ans minimum) :
+
+$$\text{Coefficient saisonnier du mois M} = \frac{\text{Ventes moyennes du mois M}}{\text{Ventes moyennes mensuelles de l'année}}$$
+
+**Prévision d'un mois** = Prévision annuelle × Coefficient saisonnier du mois
+
+#### Exemple — Produit A
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+<ExcelViewer
+  mode="inline"
+  headers={["", "Janvier", "Février", "...", "Décembre", "Total année"]}
+  rows={[
+    ["Année 2024", "135", "225", "...", "60", "2200"],
+    ["Année 2025", "168", "274", "...", "56", "2550"],
+    ["Année 2026", "138", "317", "...", "46", "2450"],
+    ["Moyenne", "→ à calculer", "→ à calculer", "...", "→ à calculer", "→ à calculer"],
+    ["Coefficient saisonnier", "= moy. mois / moy. mensuelle annuelle", "", "...", "", ""]
+  ]}
+/>
+
+Si les ventes prévues pour 2027 sont de **2.700 produits** → Programme des ventes = 2.700 × coefficient de chaque mois.
+
+---
+
+### b) La prévision des coûts de distribution
+
+La direction commerciale engage des **frais de distribution** pour commercialiser les produits. Ces frais découlent logiquement de la prévision des ventes et se répartissent en deux types :
+
+#### Les charges fixes (ou de structure)
+
+Elles **ne sont pas proportionnelles** à l'activité. Elles varient par paliers lors de modifications importantes de structure.
+
+Exemples : loyers, salaires du personnel administratif, amortissements, assurances fixes…
+
+#### Les charges variables (ou proportionnelles)
+
+Elles **varient proportionnellement** à l'activité.
+
+Exemples : commissions sur ventes, frais de transport variables, emballages…
+
+#### Exercice type — Frais de transport
+
+| Postes | Nature | 10.000 km | 20.000 km | 30.000 km |
+|---|---|---|---|---|
+| Amortissement | Fixe | 3.500 € | 3.500 € | 3.500 € |
+| Carburants | Variable | 900 € | 1.800 € | 2.700 € |
+| Assurances | Fixe | 2.000 € | 2.000 € | 2.000 € |
+| Entretien | Variable | 300 € | 600 € | 900 € |
+| Taxes | Fixe | 500 € | 500 € | 500 € |
+| Salaire conducteur | Fixe | 1.500 € | 1.500 € | 1.500 € |
+| Huiles | Variable | 100 € | 200 € | 300 € |
+| **Total** | | **8.800 €** | **10.100 €** | **11.400 €** |
+| **Coût/km** | | **0,88 €** | **0,505 €** | **0,38 €** |
+
+> 💡 Le coût unitaire **baisse** quand le kilométrage augmente, car les charges fixes sont réparties sur davantage d'unités.
+
+---
+
+## 2. Budgétisation des ventes
+
+Le **budget des ventes** est une **valorisation des prévisions** des ventes. Il est présenté sous forme de tableau (TTC) et peut être ventilé par produit, par canal de distribution, par zone géographique, par type de client, ou toute combinaison de ces critères.
+
+### Exemple de structure de budget des ventes
+
+<ExcelViewer
+  mode="inline"
+  headers={["Produit / Zone", "Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4", "Total (€)"]}
+  rows={[
+    ["Produit A — Nord", "", "", "", "", ""],
+    ["Produit A — Centre", "", "", "", "", ""],
+    ["Produit A — Sud", "", "", "", "", ""],
+    ["Produit B — Nord", "", "", "", "", ""],
+    ["...", "", "", "", "", ""],
+    ["TOTAL", "", "", "", "", ""]
+  ]}
+/>
+
+Le budget des ventes est souvent accompagné d'un **budget des frais commerciaux** (publicité, salaires commerciaux, transports, emballages…).
+
+### Exercice récapitulatif — Entreprise SELIS
+
+L'entreprise SELIS prévoit des ventes à 200 €/unité. Règlement : 60% comptant, 40% le mois suivant.
+
+**Budget des ventes et encaissements (1er semestre N+1) :**
+
+<ExcelViewer
+  mode="inline"
+  headers={["Éléments", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Reste 2e trim."]}
+  rows={[
+    ["Quantités prévues", "1400", "2200", "1800", "2650", "1450", "1680", ""],
+    ["CA (HT)", "280.000", "440.000", "360.000", "530.000", "290.000", "336.000", ""],
+    ["Encaissement 60% (comptant)", "168.000", "264.000", "216.000", "318.000", "174.000", "201.600", ""],
+    ["Encaissement 40% (mois suivant)", "—", "112.000", "176.000", "144.000", "212.000", "116.000", "134.400"],
+    ["TOTAL encaissé", "168.000", "376.000", "392.000", "462.000", "386.000", "317.600", ""]
+  ]}
+/>
+
+---
+
+## 3. Contrôle budgétaire des ventes
+
+Le contrôle des ventes consiste à comparer prévisions et réalisations pour faire apparaître des **écarts**.
+
+### Analyse des écarts sur chiffre d'affaires
+
+$$\text{Écart global} = CA_{\text{réel}} - CA_{\text{prévu}}$$
+
+L'écart global se décompose en **deux sous-écarts** :
+
+<ExcelViewer
+  mode="inline"
+  headers={["Sous-écart", "Formule", "Interprétation"]}
+  rows={[
+    ["Écart sur quantité (E/Q)", "(Qr – Qp) × Pup", "Différence de volumes, valorisée au prix prévu"],
+    ["Écart sur prix (E/P)", "(Pur – Pup) × Qr", "Différence de prix, calculée sur les quantités réelles"]
+  ]}
+/>
+
+**Conventions :**
+- Calcul dans le sens : **réel – prévu**
+- Écart sur quantités valorisé **au prix prévu**
+- Écart sur prix calculé pour **les quantités réelles**
+
+> ⚠️ **Limite** : les deux sous-écarts ne sont pas toujours indépendants. Une hausse de prix peut provoquer une baisse des quantités vendues, ce qui limite la pertinence de l'analyse.
+
+### Analyse des écarts sur marge
+
+Un contrôle portant uniquement sur le CA est souvent **inadapté** : un commercial peut augmenter les volumes en bradant les prix, ce qui diminue la rentabilité.
+
+Pour isoler la responsabilité commerciale, on raisonne à **coût unitaire préétabli constant** (coût de production prévu) dans les deux calculs.
+
+#### Formules
+
+$$\text{Marge réelle} = (P_{ur} - C_{up}) \times Q_r$$
+$$\text{Marge prévisionnelle} = (P_{up} - C_{up}) \times Q_p$$
+$$\text{Écart sur marge} = \text{Marge réelle} - \text{Marge prévisionnelle}$$
+
+**Décomposition :**
+
+<ExcelViewer
+  mode="inline"
+  headers={["Sous-écart", "Formule"]}
+  rows={[
+    ["Écart sur marge unitaire", "(Marge unitaire réelle – Marge unitaire prévue) × Qr"],
+    ["Écart sur quantité", "(Qr – Qp) × Marge unitaire prévue"]
+  ]}
+/>
+
+**Légende :**
+- $P_{ur}$ = Prix unitaire réel
+- $P_{up}$ = Prix unitaire prévu
+- $Q_r$ = Quantité réelle
+- $Q_p$ = Quantité prévue
+- $C_{up}$ = Coût unitaire préétabli (de production ou d'achat)
+
+> 💡 En cas de grand nombre de produits, l'écart sur quantité peut être subdivisé en **écart sur volume global** et **écart sur composition** (mix-produit), mais cette analyse dépasse le cadre de ce cours.

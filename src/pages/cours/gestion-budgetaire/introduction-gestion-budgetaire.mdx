@@ -1,0 +1,71 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Introduction à la gestion budgétaire
+coursId: gestion-budgetaire
+chapitreNum: 1
+resume: Définition et rôle de la gestion budgétaire, processus en 3 étapes (prévision, budgétisation, contrôle), objectifs et hiérarchie des budgets.
+---
+
+## I. Introduction
+
+La gestion budgétaire constitue une synthèse qui tire ses principaux concepts de la **comptabilité**, de la **finance** et de la **sociologie des organisations**.
+
+> **Définition** : La gestion budgétaire est un mode de gestion consistant à **traduire en programmes d'actions chiffrées** (appelés budgets) les décisions prises par la direction avec la participation des responsables.
+
+Elle suppose :
+- la définition d'**objectifs** au préalable ;
+- une **structure** englobant l'ensemble des activités de l'entreprise ;
+- la **participation et l'engagement** des responsables des centres de responsabilité ;
+- la mise en place d'un **contrôle budgétaire**.
+
+### Le contrôle budgétaire
+
+Le contrôle budgétaire consiste à mettre en évidence et à interpréter périodiquement les **écarts entre les prévisions et les réalisations**, en vue d'entreprendre des actions correctives pour atteindre les objectifs déterminés.
+
+La gestion budgétaire constitue toujours la méthode de contrôle de gestion **la plus utilisée** par les entreprises.
+
+---
+
+## II. Étapes de la gestion budgétaire
+
+Le processus budgétaire s'articule en **trois étapes** :
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+<ExcelViewer
+  mode="inline"
+  headers={["Étape", "Nom", "Description"]}
+  rows={[
+    ["1", "Prévision", "Projection à partir de données internes (capacité de production, stocks, ressources humaines…) et externes (marché, concurrence, conjoncture…)"],
+    ["2", "Budgétisation", "Traduction en budgets chiffrés des données de prévisions"],
+    ["3", "Contrôle", "Comparaison prévisions / réalisations → analyse des écarts → mesures correctives"]
+  ]}
+/>
+
+---
+
+## III. Objectifs de la gestion budgétaire
+
+- **Traduire en budgets** les décisions prises (avec la participation des responsables de service) par la direction.
+- **Rechercher les responsabilités** sur les écarts prévisions-réalisations constatés : qui est responsable de ces écarts ?
+- **Remettre en cause les prévisions** et déterminer les corrections à apporter.
+
+---
+
+## IV. Hiérarchie des budgets
+
+Les budgets d'une entreprise ne sont pas indépendants : ils s'articulent selon une **hiérarchie logique**. Le budget des ventes est le budget directeur, car il conditionne tous les autres.
+
+<ExcelViewer
+  mode="inline"
+  headers={["Niveau", "Budget", "Dépend de"]}
+  rows={[
+    ["1 (directeur)", "Budget des ventes", "Prévisions commerciales et étude de marché"],
+    ["2", "Budget de production", "Budget des ventes"],
+    ["2", "Budget des approvisionnements", "Budget de production"],
+    ["3", "Budget des investissements", "Stratégie de l'entreprise"],
+    ["4 (synthèse)", "Budget de trésorerie", "Tous les budgets précédents"]
+  ]}
+/>
+
+> 💡 On construit les budgets **du commerce vers les finances** : ventes → production → approvisionnements → investissements → trésorerie.

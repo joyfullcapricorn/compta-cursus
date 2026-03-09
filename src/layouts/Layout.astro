@@ -26,6 +26,15 @@ const { title = 'ComptaCursus', description = 'Cursus complet de comptabilité' 
         Compta<em>Cursus</em>
       </a>
       <div class="nav__actions">
+        <a
+          href="https://hepl-my.sharepoint.com/:f:/g/personal/hugo_legere_student_hepl_be/IgDJ1zwpD4hnQozF1Rty6NE0AZQzkLj2GiPby2Ie3alZVR0"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav__onedrive"
+          title="Cours originaux sur OneDrive"
+        >
+          ☁️ Cours originaux
+        </a>
         <button class="btn-icon" id="theme-toggle" aria-label="Changer le thème" title="Mode sombre / clair">
           <span id="theme-icon">🌙</span>
         </button>
@@ -52,5 +61,33 @@ const { title = 'ComptaCursus', description = 'Cursus complet de comptabilité' 
       document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
     });
   </script>
+
+  <style>
+    .nav__onedrive {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .nav__onedrive:hover {
+      color: #0078d4;
+      border-color: #0078d4;
+      background: #e8f2fc;
+      text-decoration: none;
+    }
+    @media (max-width: 480px) {
+      .nav__onedrive { font-size: 0; gap: 0; padding: 6px 10px; }
+      .nav__onedrive::before { content: "☁️"; font-size: 1rem; }
+    }
+  </style>
 </body>
 </html>

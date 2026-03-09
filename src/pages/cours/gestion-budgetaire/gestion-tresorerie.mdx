@@ -1,0 +1,169 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Gestion de la trésorerie
+coursId: gestion-budgetaire
+chapitreNum: 5
+resume: Objectifs de la gestion de trésorerie, décalages de paiement, construction du budget de trésorerie (encaissements, décaissements, TVA, salaires), contrôle des écarts.
+---
+
+## IX. Gestion de la trésorerie
+
+La gestion de trésorerie a pour objectif de **faire face à tout moment aux échéances des dettes** afin d'éviter la cessation de paiement — au moindre coût.
+
+> 💡 Un **déficit** de trésorerie peut être compensé par des solutions bancaires (découvert, escompte de traites), mais au détriment de la rentabilité.  
+> Un **excédent** a aussi un coût d'opportunité : les fonds immobilisés auraient pu être affectés à des emplois plus profitables.
+
+---
+
+## 1. Prévision de trésorerie
+
+La prévision de trésorerie résulte des **budgets précédents** (ventes, production, approvisionnements, investissements) et des **décalages de paiement**.
+
+### Encaissements (entrées de trésorerie)
+
+- Ventes **TVAC** (la TVA collectée est reversée à l'État, mais de façon *décalée*)
+- Cessions d'immobilisations, emprunts, augmentations de capital (caractère exceptionnel)
+
+### Décaissements (sorties de trésorerie)
+
+- Achats, charges de production et de distribution — montants **TVAC** (la TVA déductible est récupérée de façon *décalée*)
+- Acquisitions d'immobilisations
+
+> ⚠️ Les **amortissements** sont une charge comptable *non décaissée* : ils n'apparaissent donc **pas** dans le budget de trésorerie en tant que décaissement.
+
+### Décalages de paiement
+
+Il existe souvent des décalages entre les produits (encaissements) et les charges (décaissements). Certains sont connus avec précision :
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+<ExcelViewer
+  mode="inline"
+  headers={["Flux", "Décalage typique"]}
+  rows={[
+    ["TVA à reverser", "Avant le 20 du mois suivant le mois (ou trimestre) des opérations"],
+    ["Crédit client", "Selon les conditions de paiement accordées (ex : 30 jours, 60 jours fin de mois)"],
+    ["Crédit fournisseur", "Selon les délais négociés (souvent 30 à 60 jours)"],
+    ["Salaires nets", "Fin du mois concerné"],
+    ["Charges sociales patronales", "Le 15 du mois suivant"],
+    ["Investissement", "Selon les conditions contractuelles (comptant, différé…)"]
+  ]}
+/>
+
+### Analyse des modalités réelles d'encaissement
+
+Une analyse statistique des encaissements passés permet de déterminer les **taux de recouvrement** par mois :
+
+**Exemple** : analyse sur 6 mois montrant que de façon constante :
+- **20%** des ventes sont encaissées le mois même
+- **50%** le mois suivant
+- **30%** deux mois plus tard
+
+Ces taux sont ensuite appliqués aux prévisions de ventes futures.
+
+---
+
+## 2. Budgétisation — Construction du budget de trésorerie
+
+La périodicité retenue est généralement **le mois** (car la plupart des charges importantes ont une échéance mensuelle : salaires, TVA…).
+
+> ⚠️ L'équilibre mensuel du budget ne garantit pas l'absence de difficultés en cours de mois → un suivi **au jour le jour** reste nécessaire.
+
+### Structure générale
+
+Le budget de trésorerie est construit en **4 sous-budgets** :
+
+#### 1° Budget des encaissements
+
+<ExcelViewer
+  mode="inline"
+  headers={["Éléments", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin"]}
+  rows={[
+    ["Ventes TVAC", "", "", "", "", "", ""],
+    ["Encaissements comptant (% GC)", "", "", "", "", "", ""],
+    ["Encaissements à crédit (mois M+1)", "", "", "", "", "", ""],
+    ["Encaissements à crédit (mois M+2)", "", "", "", "", "", ""],
+    ["Créances au bilan (report initial)", "", "", "", "", "", ""],
+    ["TOTAL encaissements", "", "", "", "", "", ""]
+  ]}
+/>
+
+#### 2° Budget des décaissements sur achats
+
+<ExcelViewer
+  mode="inline"
+  headers={["Éléments", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin"]}
+  rows={[
+    ["Achats TVAC", "", "", "", "", "", ""],
+    ["Règlements (selon délais fournisseurs)", "", "", "", "", "", ""],
+    ["Dettes fournisseurs au bilan", "", "", "", "", "", ""],
+    ["TOTAL décaissements achats", "", "", "", "", "", ""]
+  ]}
+/>
+
+#### 3° Budget des décaissements de TVA
+
+La TVA nette à reverser = TVA collectée sur ventes – TVA déductible sur achats (et sur investissements). Elle est décaissée le **20 du mois suivant**.
+
+<ExcelViewer
+  mode="inline"
+  headers={["Éléments", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin"]}
+  rows={[
+    ["TVA sur ventes (collectée)", "", "", "", "", "", ""],
+    ["TVA sur achats (déductible)", "", "", "", "", "", ""],
+    ["TVA sur immobilisations (déductible)", "", "", "", "", "", ""],
+    ["TVA nette à décaisser (ou crédit)", "", "", "", "", "", ""],
+    ["Règlement (mois suivant, avant le 20)", "", "", "", "", "", ""]
+  ]}
+/>
+
+#### 4° Budget des décaissements — autres charges
+
+<ExcelViewer
+  mode="inline"
+  headers={["Éléments", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin"]}
+  rows={[
+    ["Salaires bruts", "", "", "", "", "", ""],
+    ["Salaires nets (80% brut, fin de mois)", "", "", "", "", "", ""],
+    ["Charges sociales (15 du mois suivant)", "", "", "", "", "", ""],
+    ["Loyers et autres charges décaissées", "", "", "", "", "", ""],
+    ["Investissements", "", "", "", "", "", ""],
+    ["Remboursements d'emprunts", "", "", "", "", "", ""],
+    ["Acomptes d'impôt", "", "", "", "", "", ""],
+    ["TOTAL décaissements charges", "", "", "", "", "", ""]
+  ]}
+/>
+
+### Budget de trésorerie — Synthèse finale
+
+<ExcelViewer
+  mode="inline"
+  headers={["", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin"]}
+  rows={[
+    ["Trésorerie initiale", "= solde bilan", "", "", "", "", ""],
+    ["+ Encaissements", "", "", "", "", "", ""],
+    ["– Décaissements totaux", "", "", "", "", "", ""],
+    ["= Trésorerie finale", "", "", "", "", "", ""]
+  ]}
+/>
+
+> 💡 La trésorerie finale d'un mois devient la **trésorerie initiale du mois suivant**.
+
+---
+
+## 3. Contrôle de la trésorerie
+
+Le contrôle fait apparaître et analyse les écarts entre prévisions et réalisations pour les encaissements et les décaissements.
+
+### Origines possibles des écarts
+
+- **Non-respect des budgets opérationnels** (ventes, production, approvisionnements) : le budget de trésorerie n'est que la résultante de tous les autres budgets. Si les volumes ou les prix divergent, la trésorerie en sera affectée.
+
+- **Non-respect des décalages de paiement prévus** : retards de paiement des clients, délais d'obtention d'emprunts ou de subventions plus longs que prévu.
+
+### Conséquences et mesures correctives
+
+Cette analyse peut déboucher sur :
+- Une **remise en cause des pratiques commerciales** : contrôle de la solvabilité des clients, révision des délais accordés.
+- Un **recours à des solutions de financement court terme** en cas de déficit : découvert bancaire, escompte de traites ou de lettres de change.
+- Un **placement des excédents** pour valoriser les liquidités disponibles.

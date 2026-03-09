@@ -1,0 +1,248 @@
+---
+layout: ../../../layouts/ChapterLayout.astro
+titre: Gestion des approvisionnements et des investissements
+coursId: gestion-budgetaire
+chapitreNum: 4
+resume: Optimisation des stocks (modèle de Wilson), budgétisation des approvisionnements (quantités constantes / périodes constantes), rentabilité des investissements (VAN, TRI, IP, DRCI) et rentabilité financière.
+---
+
+## VII. Gestion des approvisionnements
+
+La gestion des approvisionnements doit permettre à l'entreprise de disposer, au bon moment, des matières premières nécessaires à ses fabrications — à partir du programme de production.
+
+---
+
+## 1. Prévision — Optimisation des stocks
+
+### Les coûts liés aux stocks
+
+La gestion des stocks engendre deux types de coûts antagonistes :
+
+import ExcelViewer from '../../../components/ExcelViewer.astro';
+
+<ExcelViewer
+  mode="inline"
+  headers={["Type de coût", "Nature", "Évolution avec N (nb de commandes)"]}
+  rows={[
+    ["Coût d'acquisition (Ca)", "Coût de passation de commande (frais administratifs, transport, réception…)", "↑ augmente quand N augmente"],
+    ["Coût de possession (Cp)", "Frais de stockage, assurances, obsolescence, financement du stock…", "↓ diminue quand N augmente (stock moyen plus faible)"],
+    ["Coût total de stock (Ct)", "Ca × N + Cp × Stock moyen", "Minimum à trouver"]
+  ]}
+/>
+
+### Le modèle de Wilson
+
+Le modèle de Wilson cherche le **nombre de commandes optimal N*** qui minimise le coût total de stock.
+
+**Formule du coût total :**
+$$C_t = C_a \times N + \frac{C \times t}{100 \times 2N}$$
+
+où :
+- $C_a$ = coût d'acquisition par commande
+- $N$ = cadence d'approvisionnement (nombre de commandes/an)
+- $C$ = consommation annuelle en valeur
+- $t$ = taux de possession (% du stock moyen)
+
+**Nombre optimal de commandes :**
+$$N^* = \sqrt{\frac{C \times t}{200 \times C_a}}$$
+
+**Application :**
+
+Consommation annuelle : 48.000 € — Coût d'acquisition : 60 € — Taux de possession : 9 %
+
+$$N^* = \sqrt{\frac{48.000 \times 9}{200 \times 60}} = \sqrt{\frac{432.000}{12.000}} = \sqrt{36} = 6 \text{ commandes/an}$$
+
+**Vérification par tableau :**
+
+<ExcelViewer
+  mode="inline"
+  headers={["N (commandes)", "Coût total acquisition (Ca × N)", "Coût total possession (C×t / 200N)", "Coût total de stock"]}
+  rows={[
+    ["1", "60 €", "2.160 €", "2.220 €"],
+    ["2", "120 €", "1.080 €", "1.200 €"],
+    ["3", "180 €", "720 €", "900 €"],
+    ["4", "240 €", "540 €", "780 €"],
+    ["5", "300 €", "432 €", "732 €"],
+    ["6 ★ optimal", "360 €", "360 €", "720 €"],
+    ["7", "420 €", "308,6 €", "728,6 €"],
+    ["8", "480 €", "270 €", "750 €"]
+  ]}
+/>
+
+> 💡 Le coût total est **minimal quand le coût d'acquisition = coût de possession** (N = 6 dans l'exemple).
+
+### Limites du modèle de Wilson
+
+Le modèle ne s'applique pas dans certains cas :
+- Produits frais ou à durée de conservation limitée
+- Fournisseur unique imposant ses livraisons
+- Remises quantitatives qui modifient le coût unitaire selon les lots commandés
+- Contraintes d'espace de stockage
+
+---
+
+## 2. Budgétisation des approvisionnements
+
+Le budget des approvisionnements établit l'échelonnement dans le temps des prévisions sur :
+- les **commandes** (budget des achats)
+- les **entrées en stock** (budget des livraisons)
+- les **sorties de stock** (= consommations du budget de production)
+
+### Deux méthodes de budgétisation
+
+**a) Budgétisation par quantités constantes**
+
+On passe des commandes de **quantité fixe** à des intervalles de temps variables. On commande dès que le stock descend au niveau du stock d'alerte.
+
+<ExcelViewer
+  mode="inline"
+  headers={["Mois", "Consommation prévue", "Stock début de mois", "Entrée en stock", "Stock fin de mois"]}
+  rows={[
+    ["Janvier", "→ selon budget prod.", "→ stock initial", "→ si stock < seuil", "= début – conso + entrée"],
+    ["Février", "", "", "", ""],
+    ["...", "", "", "", ""]
+  ]}
+/>
+
+**b) Budgétisation par périodes constantes**
+
+On passe des commandes à des **intervalles de temps fixes** (ex : tous les 2 mois), avec des quantités variables. La quantité commandée couvre les besoins jusqu'à la prochaine commande.
+
+> ⚠️ Dans les deux cas, il faut prévoir un **stock de sécurité** pour couvrir les aléas de consommation ou de livraison.
+
+---
+
+## 3. Contrôle des approvisionnements
+
+Un contrôle régulier permet de déceler des écarts entre prévisions et réalisations. Les causes les plus fréquentes :
+- Variation des prix d'achat
+- Retards de livraison
+- Consommations différentes des prévisions
+- Ruptures de stock imprévues
+
+---
+
+## VIII. Gestion des investissements
+
+### I. Prévision
+
+#### 1. Introduction
+
+Un **investissement** est une dépense engagée aujourd'hui dans l'espoir de générer des flux de trésorerie futurs. Il s'oppose à une dépense de fonctionnement.
+
+**Classification des investissements :**
+- **Immatériels** : recherche & développement, formation, qualité, logiciels…
+- **Matériels** : machines, bâtiments, véhicules, équipements…
+- **Financiers** : prise de participation dans d'autres sociétés
+
+---
+
+### 2. Les flux nets de trésorerie (FNT)
+
+La rentabilité économique d'un investissement se mesure en comparant les **flux nets de trésorerie** (encaissements – décaissements) qu'il génère sur sa durée de vie.
+
+**Structure du tableau des FNT :**
+
+<ExcelViewer
+  mode="inline"
+  headers={["", "Année 0", "Année 1", "Année 2", "...", "Année n"]}
+  rows={[
+    ["ENCAISSEMENTS", "", "", "", "", ""],
+    ["Capacité d'autofinancement (CAF)", "—", "+", "+", "...", "+"],
+    ["Valeur résiduelle nette", "—", "—", "—", "...", "+"],
+    ["Récupération du BFR", "—", "—", "—", "...", "+"],
+    ["DÉCAISSEMENTS", "", "", "", "", ""],
+    ["Investissement initial", "–", "—", "—", "...", "—"],
+    ["Constitution du BFR", "–", "—", "—", "...", "—"],
+    ["FLUX NETS DE TRÉSORERIE", "–", "+/–", "+/–", "...", "+/–"]
+  ]}
+/>
+
+**Composantes clés :**
+
+- **CAF (Capacité d'Autofinancement)** = Résultat net + Amortissements *(les amortissements sont une charge non décaissée : ils sont déduits pour calculer le résultat mais ne constituent pas une sortie d'argent)*
+- **Valeur résiduelle nette** = Prix de cession probable en fin de vie – impôt sur plus-value éventuelle
+- **BFR (Besoin en Fonds de Roulement)** = décalage entre encaissements et décaissements d'exploitation (stock + créances clients – dettes fournisseurs)
+
+---
+
+### 3. Critères de rentabilité économique
+
+#### A) La Valeur Actuelle Nette (VAN)
+
+**Principe** : un investissement est rentable si la VAN des FNT est **positive**.
+
+$$VAN = \sum_{t=1}^{n} \frac{FNT_t}{(1+i)^t} - I_0$$
+
+où $i$ = taux d'actualisation et $I_0$ = investissement initial.
+
+**Règle de décision :**
+- VAN > 0 → investissement **rentable** (accepter)
+- VAN < 0 → investissement **non rentable** (rejeter)
+- VAN = 0 → indifférent
+
+**Taux d'actualisation** : taux de rentabilité minimal défini par l'investisseur, tenant compte du risque d'inflation et du coût du capital.
+
+#### B) L'Indice de Profitabilité (IP)
+
+$$IP = \frac{\sum FNT \text{ actualisés}}{I_0}$$
+
+- IP > 1 → rentable
+- Utile pour **comparer des projets d'investissements différents** (ne requiert pas le même montant)
+
+#### C) Le Taux de Rentabilité Interne (TRI)
+
+**Principe** : le TRI est le taux $i^*$ pour lequel la VAN = 0.
+
+$$\sum_{t=1}^{n} \frac{FNT_t}{(1+i^*)^t} = I_0$$
+
+**Règle de décision :**
+- TRI > taux d'actualisation requis → investissement **rentable**
+- TRI < taux d'actualisation requis → **non rentable**
+
+**Calcul par interpolation linéaire** (entre deux taux encadrant le TRI) :
+$$TRI \approx i_1 + \frac{VAN(i_1)}{VAN(i_1) - VAN(i_2)} \times (i_2 - i_1)$$
+
+#### D) Le Délai de Récupération du Capital Investi actualisé (DRCI)
+
+**Principe** : durée au bout de laquelle le cumul des FNT actualisés est égal à l'investissement initial.
+
+$$DRCI = \text{année du cumul inférieur} + \frac{I_0 - \text{cumul inférieur}}{\text{cumul supérieur} - \text{cumul inférieur}}$$
+
+- Plus le DRCI est court, plus l'investissement est **liquide** (préférable en cas d'incertitude).
+
+---
+
+### 4. Choix entre plusieurs investissements
+
+Comparer des projets est délicat si les montants ou les durées diffèrent.
+
+**Projets de montants différents** : utiliser l'**IP** plutôt que la VAN absolue.
+
+**Projets de durées différentes** : il faut raisonner sur un **horizon commun** (PPCM des durées) en supposant que le projet le plus court est renouvellé, puis comparer les VAN sur cet horizon commun.
+
+---
+
+### 6. Étude de la rentabilité financière
+
+Une fois la rentabilité économique confirmée, il faut choisir le **mode de financement** :
+
+<ExcelViewer
+  mode="inline"
+  headers={["Mode", "Caractéristiques", "Avantages", "Inconvénients"]}
+  rows={[
+    ["Autofinancement (fonds propres)", "Utilisation des réserves / bénéfices non distribués", "Pas de charge financière, indépendance", "Réduit les disponibilités"],
+    ["Emprunt bancaire", "Remboursement + intérêts selon plan de financement", "Effet de levier si rentabilité > taux d'emprunt", "Charge financière fixe"],
+    ["Crédit-bail (leasing)", "Location avec option d'achat", "Pas d'immobilisation au bilan (hors IFRS)", "Coût souvent supérieur à l'emprunt"]
+  ]}
+/>
+
+**Plan de financement** : tableau sur plusieurs années récapitulant les ressources (autofinancement, emprunts, apports…) et les emplois (investissements, remboursements…).
+
+---
+
+### III. Contrôle des investissements
+
+Les contrôles portent sur les différents budgets mis en œuvre :
+- **Écarts sur délais** : retards de réalisation par rapport au calendrier prévu
+- **Écarts sur montants** : dépassements ou économies par rapport au budget
