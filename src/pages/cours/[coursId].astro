@@ -52,11 +52,33 @@ const colors = {
     </div>
 
     {cours.chapitres.length === 0 ? (
-      <div style="text-align:center;padding:64px 24px;color:var(--text-muted)">
-        <div style="font-size:2.5rem;margin-bottom:16px">🚧</div>
-        <p style="font-size:1rem;color:var(--text-secondary)">Les chapitres de ce cours seront ajoutés prochainement.</p>
+  <div style={{ textAlign: "center", padding: "64px 24px", color: "var(--text-muted)" }}>
+
+    <p style={{ fontSize: "1rem", color: "var(--text-secondary)", marginBottom: "20px" }}>
+      Il n’y a pas encore de résumé pour ce cours.  
+      Les documents originaux sont disponibles sur OneDrive.
+    </p>
+
+    <a
+      href="https://hepl-my.sharepoint.com/:f:/g/personal/hugo_legere_student_hepl_be/IgDJ1zwpD4hnQozF1Rty6NE0AZQzkLj2GiPby2Ie3alZVR0"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="nav__onedrive"
+      title="Cours originaux sur OneDrive"
+      style={{
+        display: "inline-block",
+        padding: "10px 18px",
+        borderRadius: "8px",
+        textDecoration: "none",
+        background: "var(--accent)",
+        color: "white",
+        fontWeight: "500"
+      }}
+    >
+      ☁️ Voir le cours sur OneDrive
+    </a>
       </div>
-    ) : (
+      ) : (
       <div>
         <h2 style="font-family:var(--font-body);font-size:0.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px">
           Programme du cours
