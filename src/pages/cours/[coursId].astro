@@ -30,11 +30,24 @@ const colors = {
       <div>
         <h1 style="font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.2rem);color:var(--text-primary);margin-bottom:10px;font-weight:400">{cours.titre}</h1>
         <p style="color:var(--text-secondary);font-size:1rem">{cours.description}</p>
-        {cours.chapitres.length > 0 && (
-          <div style="display:flex;gap:16px;margin-top:16px;font-size:0.82rem;color:var(--text-muted)">
-            <span>📄 {cours.chapitres.length} chapitre{cours.chapitres.length > 1 ? 's' : ''}</span>
-          </div>
-        )}
+        <div style="display:flex;align-items:center;gap:16px;margin-top:16px;flex-wrap:wrap">
+          {cours.chapitres.length > 0 && (
+            <span style="font-size:0.82rem;color:var(--text-muted)">
+              📄 {cours.chapitres.length} chapitre{cours.chapitres.length > 1 ? 's' : ''}
+            </span>
+          )}
+          {cours.onedrive && (
+            <a
+              href={cours.onedrive}
+              target="_blank"
+              rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:500;color:#0078d4;text-decoration:none;padding:5px 12px;border-radius:var(--radius-sm);border:1px solid #b3d4f5;background:#e8f2fc;transition:all 200ms"
+              class="onedrive-link"
+            >
+              ☁️ Fichiers originaux
+            </a>
+          )}
+        </div>
       </div>
     </div>
 
@@ -112,4 +125,10 @@ const colors = {
     color: var(--text-muted);
     flex-shrink: 0;
   }
+
+  .onedrive-link:hover {
+    background: #cce3f8 !important;
+    text-decoration: none;
+  }
+
 </style>

@@ -59,9 +59,23 @@ const searchIndexJSON = JSON.stringify(searchIndex);
               <span>📄</span>
               {cours.chapitres.length === 0 ? 'À venir' : cours.chapitres.length + ' chapitre' + (cours.chapitres.length > 1 ? 's' : '')}
             </span>
-            <span class="card__link">
-              Voir le cours <span>→</span>
-            </span>
+            <div style="display:flex;align-items:center;gap:8px">
+              {cours.onedrive && (
+                <a
+                  href={cours.onedrive}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="onedrive-btn"
+                  title="Fichiers originaux sur OneDrive"
+                  onclick="event.stopPropagation()"
+                >
+                  ☁️
+                </a>
+              )}
+              <span class="card__link">
+                Voir le cours <span>→</span>
+              </span>
+            </div>
           </div>
         </a>
       ))}
@@ -200,3 +214,26 @@ const searchIndexJSON = JSON.stringify(searchIndex);
     }
   });
 </script>
+
+<style>
+  .onedrive-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-subtle);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all var(--transition);
+    line-height: 1;
+  }
+  .onedrive-btn:hover {
+    border-color: #0078d4;
+    background: #e8f2fc;
+    text-decoration: none;
+    transform: scale(1.1);
+  }
+</style>

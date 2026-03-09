@@ -18,7 +18,7 @@ const currentSlug = Astro.url.pathname;
 ---
 
 <Layout title={frontmatter.titre} description={frontmatter.resume}>
-  <div class="course-layout">
+  <div class="course-layout" style="min-width:0;overflow-x:hidden">
 
     <!-- Sidebar -->
     <aside class="sidebar">

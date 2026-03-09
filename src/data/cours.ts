@@ -17,6 +17,7 @@ export interface Cours {
   emoji: string;
   color: string;
   chapitres: Chapitre[];
+  onedrive?: string;
 }
 
 export const COURS: Cours[] = [
@@ -70,6 +71,7 @@ export const COURS: Cours[] = [
         slug: 'legislation-sociale/securite-sociale',
       },
     ],
+    onedrive : "",
   },
   {
     id: 'communication-francais',
