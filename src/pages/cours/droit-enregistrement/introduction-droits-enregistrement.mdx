@@ -8,35 +8,34 @@ resume: Impôts directs/indirects, compétences fiscales des Régions, formalit�
 
 import ExcelViewer from '../../../components/ExcelViewer.astro';
 
-## I. Distinction impôts directs / indirects
+## Rappels sur les cours de droit du Q1
+### Impôt direct vs impôt indirect
 
 **Impôts directs** : prélèvement périodique sur une situation durable (revenus ou capital). Le contribuable est identifié sur un **rôle**. En Belgique : IPP, ISOC, IPM, INR.
 
+**Exemples d'impôts directs**
+>| Impôt | Objet | Taux de base |
+>|-------|-------|--------------|
+>| IPP | Revenus des personnes physiques (salaires, loyers, revenus mobiliers…) | Progressif : 25% → 50% |
+>| Isoc | Bénéfices des sociétés résidentes | 25% (PME : 20% sur 1ère tranche) |
+>| IPM | Revenus des personnes morales non soumises à l'Isoc (ASBL, communes…) | Variable |
+>| INR | Revenus de non-résidents (personnes physiques ou sociétés étrangères) | Variable selon le type de revenu |
+
+<br/>
 **Impôts indirects** : frappent des actes, opérations ou faits **ponctuels**. Ils ne visent pas directement la personne, mais l'acte lui-même.
 
-<ExcelViewer
-  title="Principaux impôts indirects en Belgique"
-  type="inline"
-  data={{
-    sheets: [{
-      name: "Impôts indirects",
-      rows: [
-        ["Impôt", "Objet", "Taux de base"],
-        ["TVA", "Consommation — livraisons de biens et prestations de services", "21% (réduits : 12%, 6%, 0%)"],
-        ["Droits de douane", "Importations au sein de l'UE — réglementation uniforme européenne", "Variable"],
-        ["Droits d'accises", "Fabrication/consommation de certains biens (carburants, tabac, alcools…)", "Variable"],
-        ["Droits d'enregistrement", "Circulation juridique de biens entre vifs (vente, donation, bail, apport…)", "Variable selon l'opération"],
-        ["Droits de succession", "Transmission de patrimoine pour cause de mort", "Variable selon le lien de parenté"],
-      ]
-    }]
-  }}
-/>
+**Exemples d'impôts indirects**
+>| Impôt | Objet | Taux de base |
+>|-------|-------|--------------|
+>| TVA | Consommation — livraisons de biens et prestations de services | 21% (réduits : 12%, 6%, 0%) |
+>| Droits de douane | Importations au sein de l'UE — réglementation uniforme européenne | Variable |
+>| Droits d'accises | Fabrication/consommation de certains biens (carburants, tabac, alcools…) | Variable |
+>| Droits d'enregistrement | Circulation juridique de biens entre vifs (vente, donation, bail, apport…) | Variable selon l'opération |
+>| Droits de succession | Transmission de patrimoine pour cause de mort | Variable selon le lien de parenté |
 
 ---
 
-## II. Répartition des compétences fiscales en Belgique
-
-### Structure de l'État belge
+### Répartition des compétences fiscales en Belgique
 
 La Belgique est un **État fédéral** composé de :
 - l'**Autorité fédérale** (lois)
